@@ -3,13 +3,13 @@ import { Col, Container, Row } from 'react-bootstrap';
 // eslint-disable-next-line import/named
 import { useTracker } from 'meteor/react-meteor-data';
 import LoadingSpinner from '../components/LoadingSpinner';
-import Contact from '../components/Contact'; // Assuming Contact component is defined
-import { Contacts } from '../../api/contact/Contacts'; // Assuming contacts is exported from Contacts
+import { Contacts } from '../../api/contact/Contacts';
+import ContactAdmin from '../components/ContactAdmin'; // Assuming contacts is exported from Contacts
 
-const ListContacts = () => {
+const ListContactsAdmin = () => {
   const { ready, contacts } = useTracker(() => {
     // eslint-disable-next-line no-undef
-    const subscription = Meteor.subscribe(Contacts.userPublicationName);
+    const subscription = Meteor.subscribe(Contacts.adminPublicationName);
     const rdy = subscription.ready();
     const contactItems = Contacts.collection.find({}).fetch();
     return {
@@ -26,7 +26,7 @@ const ListContacts = () => {
             <h2>List Contacts</h2>
           </Col>
           <Row xs={1} md={2} lg={3} className="g-4">
-            {contacts.map((contact) => (<Col key={contact._id}><Contact contact={contact} /></Col>))}
+            {contacts.map((contact) => (<Col key={contact._id}><ContactAdmin contact={contact} /></Col>))}
           </Row>
         </Col>
       </Row>
@@ -34,4 +34,4 @@ const ListContacts = () => {
   ) : <LoadingSpinner />);
 };
 
-export default ListContacts;
+export default ListContactsAdmin;
