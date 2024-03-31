@@ -9,7 +9,7 @@ import { useParams } from 'react-router';
 import LoadingSpinner from '../components/LoadingSpinner';
 import { Contacts } from '../../api/contact/Contacts';
 
-const bridge = new SimpleSchema2Bridge(Contacts.simpleSchema());
+const bridge = new SimpleSchema2Bridge(Contacts.simpleSchema);
 
 /* Renders the EditContact page for editing a single document. */
 const EditContact = () => {
@@ -45,7 +45,7 @@ const EditContact = () => {
   return ready ? (
     <Container className="py-3">
       <Row className="justify-content-center">
-        <Col xs={5}>
+        <Col xs={10}>
           <Card>
             <Card.Body>
               <Row>
