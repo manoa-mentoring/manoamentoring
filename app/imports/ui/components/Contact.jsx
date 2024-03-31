@@ -10,7 +10,6 @@ const Contact = ({ contact }) => (
       <Card.Title>{contact.firstName} {contact.lastName}</Card.Title>
       <Card.Subtitle>{contact.address}</Card.Subtitle>
       <Card.Text>{contact.description}</Card.Text>
-
     </Card.Header>
   </Card>
 );

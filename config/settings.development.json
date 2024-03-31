@@ -3,14 +3,12 @@
     { "email": "admin@foo.com", "password": "changeme", "role": "admin" },
     { "email": "john@foo.com", "password": "changeme" }
   ],
-
   "defaultData": [
     { "name": "Basket", "quantity": 3, "owner": "john@foo.com", "condition": "excellent" },
     { "name": "Bicycle", "quantity": 2, "owner": "john@foo.com", "condition": "poor" },
     { "name": "Banana", "quantity": 2, "owner": "admin@foo.com", "condition": "good" },
     { "name": "Boogie Board", "quantity": 2, "owner": "admin@foo.com", "condition": "excellent" }
   ],
-
   "defaultContacts": [
     {
       "firstName": "Philip",
@@ -37,12 +35,12 @@
       "owner": "admin@foo.com"
     },
     {
-      "firstName": "Jason",
-      "lastName": "Leigh",
+      "firstName": "Carleton",
+      "lastName": "Moore",
       "address": "POST 307, University of Hawaii",
-      "image": "https://www.ics.hawaii.edu/wp-content/uploads/2013/08/jason_leigh-square-300x300.jpg",
-      "description": "Jason Leigh is a Professor of Information and Computer Sciences at the University of Hawaii at Manoa. He is also the Director of the Laboratory for Advanced Visualization and Applications (LAVA).",
-      "owner": "admin@foo.com"
+      "image": "https://www.ics.hawaii.edu/wp-content/uploads/2013/08/carleton_moore-square-300x300.jpg",
+      "description": "Carleton Moore is a Researcher in the Department of Information and Computer Sciences at the University of Hawaii at Manoa. He is a member of the Collaborative Software Development Laboratory.",
+      "owner": "john@foo.com"
     }
   ]
 }
