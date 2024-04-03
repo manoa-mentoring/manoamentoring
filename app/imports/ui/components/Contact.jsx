@@ -1,10 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { Card, CardBody, Image } from 'react-bootstrap';
+import { Card, CardBody, Image, ListGroup } from 'react-bootstrap';
+import Note from './Note';
+import AddNote from './AddNote';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
-const Contact = ({ contact }) => (
+const Contact = ({ contact, notes }) => (
   <Card className="h-100">
     <Card.Header>
       <Image src={contact.image} width={75} />
@@ -13,6 +15,10 @@ const Contact = ({ contact }) => (
     </Card.Header>
     <CardBody>
       <Card.Text>{contact.description}</Card.Text>
+      <ListGroup variant="flush">
+        {notes.map((note) => <Note key={note._id} note={note} />)}
+      </ListGroup>
+      <AddNote owner={contact.owner} contactId={contact._id} />
       <Link to={`/edit/${contact._id}`}>Edit</Link>
     </CardBody>
   </Card>
@@ -25,9 +31,17 @@ Contact.propTypes = {
     lastName: PropTypes.string,
     address: PropTypes.string,
     description: PropTypes.string,
+    owner: PropTypes.string,
     image: PropTypes.string,
     _id: PropTypes.string,
   }).isRequired,
+  notes: PropTypes.arrayOf(PropTypes.shape({
+    note: PropTypes.string,
+    contactId: PropTypes.string,
+    owner: PropTypes.string,
+    createdAt: PropTypes.instanceOf(Date),
+    _id: PropTypes.string, // Validation for 'note' property
+  })).isRequired,
 };
 
 export default Contact;
