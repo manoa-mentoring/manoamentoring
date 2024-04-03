@@ -4,7 +4,7 @@ import { Col, Container, Row } from 'react-bootstrap';
 import { useTracker } from 'meteor/react-meteor-data';
 import LoadingSpinner from '../components/LoadingSpinner';
 import { Contacts } from '../../api/contact/Contacts';
-import ContactAdmin from '../components/ContactAdmin'; // Assuming contacts is exported from Contacts
+import ContactAdmin from '../components/ContactAdmin'; // Assuming contacts is exported from Notes
 
 const ListContactsAdmin = () => {
   const { ready, contacts } = useTracker(() => {
