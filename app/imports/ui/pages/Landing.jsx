@@ -6,6 +6,11 @@ import { Calendar2CheckFill, FileEarmarkTextFill, PeopleFill } from 'react-boots
 const Landing = () => (
   <Container id="landing-page" className="py-3">
     <Row className="align-middle text-center">
+      <Col xs={12} className="mb-4">
+        <h1>Welcome to our platform!</h1>
+        {/* eslint-disable-next-line max-len */}
+        <p>Here, you’ll find a vibrant community of learners dedicated to academic excellence. Our landing page showcases images of enthusiastic individuals engaged in studying, setting the tone for an interactive and collaborative learning experience. Get ready to explore our application, designed to enhance your educational journey.</p>
+      </Col>
       <Col xs={4}>
         <FileEarmarkTextFill size={100} />
         <h1>Contact Details</h1>
@@ -23,6 +28,9 @@ const Landing = () => (
         <h1>Multiple Users</h1>
         <h5>This address book enables any number of users to register and save their business contacts. You can only see the contacts you have created.</h5>
       </Col>
+    </Row>
+    <Row className="justify-content-center">
+      <Col xs={8} className="text-center" />
     </Row>
   </Container>
 );

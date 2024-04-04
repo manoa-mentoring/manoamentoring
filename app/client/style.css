@@ -49,8 +49,10 @@ footer a {
 /* Add background image */
 body {
   --bg-light-rgb: var(--matr-navbar-bg-rgb);
-  background: fixed center url("/images/bg1.jpg");
+  background: fixed center url("../images/mm.png");
 }
+
+
 
 
 
