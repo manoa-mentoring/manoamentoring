@@ -3,7 +3,7 @@
 
 /* Set up some CSS variables to theme the application. */
 :root {
-  --matr-navbar-bg: rgb(240, 230, 140); /* Beige/Khaki */
+  --matr-navbar-bg: rgb(255, 255, 255); /* Beige/Khaki */
   --matr-navbar-bg-rgb: 240, 230, 140;
   --matr-navbar-text-color: white;
   --matr-navbar-highlight-text: rgb(0, 0, 0); /* Black */
@@ -26,7 +26,6 @@ body .navbar {
   --bs-navbar-hover-color: var(--matr-navbar-highlight-text);
 }
 
-
 /* Set the alert background on the signin and signup pages. */
 #signin-page .alert-light,
 #signup-page .alert-light {
@@ -36,7 +35,7 @@ body .navbar {
 /* Define custom styles */
 .gray-background {
   background-color: var(--matr-navbar-bg);
-  color: var(--bs-dark);
+  color: var(--bs-light);
   padding-top: 10px;
   padding-bottom: 20px;
 }
@@ -49,10 +48,11 @@ footer a {
 /* Add background image */
 body {
   --bg-light-rgb: var(--matr-navbar-bg-rgb);
-  background: fixed center url("../images/mm.png");
+  background: fixed center url("images/bg2.jpg");
 }
-
-
+.extra-space {
+  height: 100vh; /* Adjust this value as needed */
+}
 
 
 
