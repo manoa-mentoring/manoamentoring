@@ -3,10 +3,10 @@
 
 /* Set up some CSS variables to theme the application. */
 :root {
-  --matr-navbar-bg: rgb(255, 255, 255); /* Beige/Khaki */
-  --matr-navbar-bg-rgb: 240, 230, 140;
-  --matr-navbar-text-color: white;
-  --matr-navbar-highlight-text: rgb(0, 0, 0); /* Black */
+  --matr-navbar-bg: rgb(0, 100, 0); /* Dark green */
+  --matr-navbar-bg-rgb: 0, 100, 0;
+  --matr-navbar-text-color: #ffffff; /* White text for dark background */
+  --matr-navbar-highlight-text: rgb(255, 255, 255); /* Black */
 }
 
 /* Change bootstrap variable values.
@@ -33,12 +33,13 @@ body .navbar {
 }
 
 /* Define custom styles */
-.gray-background {
+.white-background {
   background-color: var(--matr-navbar-bg);
-  color: var(--bs-light);
+  color: var(--matr-navbar-text-color); /* Change to white */
   padding-top: 10px;
   padding-bottom: 20px;
 }
+
 
 footer,
 footer a {
@@ -50,10 +51,4 @@ body {
   --bg-light-rgb: var(--matr-navbar-bg-rgb);
   background: fixed center url("images/bg2.jpg");
 }
-.extra-space {
-  height: 100vh; /* Adjust this value as needed */
-}
-
-
-
 

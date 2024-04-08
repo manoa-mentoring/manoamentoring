@@ -3,20 +3,14 @@ import { Col, Container } from 'react-bootstrap';
 
 /** The Footer appears at the bottom of every page. Rendered by the App Layout component. */
 const Footer = () => (
-  <footer className="mt-auto py-3 bg-dark">
+  <footer className="mt-auto py-1 bg-dark"> {/* Reduced padding */}
     <Container>
       <Col className="text-center">
-        Department of Information and Computer Sciences
+        Created and Maintained by: Roger Tulonghari, Grace Madson, Hazelle Limos, Robert Maddox, and Hau’oli O’Brien
         {' '}
         <br />
-        University of Hawaii
-        <br />
-        Honolulu, HI 96822
-        {' '}
-        <br />
-        <a href="http://ics-software-engineering.github.io/meteor-application-template-react">
-          Template Home
-          Page
+        <a href="https://manoa-mentoring.github.io/">
+          More about our Project here (click me!)
         </a>
       </Col>
     </Container>
