@@ -7,7 +7,7 @@ const SignOut = () => {
   Meteor.logout();
   return (
     <Col id="signout-page" className="text-center py-3">
-      <h2 style={{ color: 'white' }}>You are signed out.</h2>
+      <h2 style={{ color: 'white', backgroundColor: '#a5a8b4' }}>You are signed out.</h2>
     </Col>
   );
 };
