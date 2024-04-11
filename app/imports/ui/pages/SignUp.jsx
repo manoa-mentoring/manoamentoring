@@ -50,7 +50,7 @@ const SignUp = ({ location }) => {
     return <Navigate to={from} />;
   }
   return (
-    <Container id="signup-page" className="py-2">
+    <Container id="signup-page" className="py-5 ">
       <Row className="justify-content-center">
         <Col xs={5}>
           <Col className="text-center">
