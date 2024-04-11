@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Card, Image, Row, Col, ListGroup, Badge } from 'react-bootstrap';
+import { Card, Image, Row, Col, ListGroup, Badge, Button } from 'react-bootstrap';
 import { Envelope } from 'react-bootstrap-icons';
+import { Link } from 'react-router-dom';
 
-/** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
-const Contact = ({ contact }) => (
+const Profile = ({ contact }) => (
   <Card className="h-100" border="success">
     <Card.Header>
       <Row>
@@ -40,11 +40,18 @@ const Contact = ({ contact }) => (
         </ListGroup.Item>
       </ListGroup>
     </Card.Body>
+    <Card.Footer>
+      <Link to={`/edit/${contact._id}`}>
+        <Button variant="success">
+          Edit Profile
+        </Button>
+      </Link>
+    </Card.Footer>
   </Card>
 );
 
 // Require a document to be passed to this component.
-Contact.propTypes = {
+Profile.propTypes = {
   contact: PropTypes.shape({
     firstName: PropTypes.string,
     lastName: PropTypes.string,
@@ -57,4 +64,4 @@ Contact.propTypes = {
   }).isRequired,
 };
 
-export default Contact;
+export default Profile;

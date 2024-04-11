@@ -9,7 +9,7 @@ import { useParams } from 'react-router';
 import LoadingSpinner from '../components/LoadingSpinner';
 import { Contacts } from '../../api/contact/Contacts';
 
-const bridge = new SimpleSchema2Bridge(Contacts.simpleSchema);
+const bridge = new SimpleSchema2Bridge(Contacts.schema);
 
 /* Renders the EditContact page for editing a single document. */
 const EditContact = () => {
@@ -19,7 +19,7 @@ const EditContact = () => {
   // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
   const { doc, ready } = useTracker(() => {
     // Get access to Contact documents.
-    const subscription = Meteor.subscribe('contacts');
+    const subscription = Meteor.subscribe(Contacts.userPublicationName);
     // Determine if the subscription is ready
     const rdy = subscription.ready();
     // Get the document
@@ -32,8 +32,8 @@ const EditContact = () => {
   // console.log('EditContact', doc, ready);
   // On successful submit, update the data.
   const submit = (data) => {
-    const { firstName, lastName, address, image, description } = data;
-    Contacts.collection.update(_id, { $set: { firstName, lastName, address, image, description } }, (error) => {
+    const { firstName, lastName, gradYear, major, address, image, description } = data;
+    Contacts.collection.update(_id, { $set: { firstName, lastName, gradYear, major, address, image, description } }, (error) => {
       if (error) {
         swal('Error', error.message, 'error');
       } else {
@@ -49,12 +49,14 @@ const EditContact = () => {
           <Card>
             <Card.Body>
               <Row>
-                <Col><h2 className="text-center">Edit Contact</h2></Col>
+                <Col><h2 className="text-center">Edit Profile</h2></Col>
               </Row>
               <AutoForm schema={bridge} onSubmit={data => submit(data)} model={doc}>
                 <Row>
                   <Col><TextField name="firstName" /></Col>
                   <Col><TextField name="lastName" /></Col>
+                  <Col><TextField name="gradYear" /></Col>
+                  <Col><TextField name="major" /></Col>
                 </Row>
                 <Row>
                   <Col><TextField name="address" /></Col>

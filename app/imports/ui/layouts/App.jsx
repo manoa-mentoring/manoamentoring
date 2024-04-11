@@ -17,6 +17,8 @@ import LoadingSpinner from '../components/LoadingSpinner';
 import ListContactsAdmin from '../pages/ListContactsAdmin';
 import AddContact from '../pages/AddContact';
 import EditContact from '../pages/EditContact';
+import ListProfiles from '../pages/ListProfiles';
+import ListCurrentProfile from '../pages/ListCurrentProfile';
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 const App = () => {
   const { ready } = useTracker(() => {
@@ -36,6 +38,8 @@ const App = () => {
           <Route path="/signout" element={<SignOut />} />
           <Route path="/home" element={<ProtectedRoute><Landing /></ProtectedRoute>} />
           <Route path="/list" element={<ProtectedRoute><ListContacts /></ProtectedRoute>} /> {/* Changed ListStuff to ListContacts */}
+          <Route path="/view-profiles" element={<ProtectedRoute><ListProfiles /></ProtectedRoute>} /> {/* Added link to viewable profiles */}
+          <Route path="/my-profile" element={<ProtectedRoute><ListCurrentProfile /></ProtectedRoute>} /> {/* Added link to viewable profiles */}
           <Route path="/add" element={<ProtectedRoute><AddContact /></ProtectedRoute>} />
           <Route path="/edit/:_id" element={<ProtectedRoute><EditContact /></ProtectedRoute>} />
           <Route path="/admin" element={<AdminProtectedRoute ready={ready}><ListContactsAdmin /></AdminProtectedRoute>} />
