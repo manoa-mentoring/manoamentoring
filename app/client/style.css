@@ -40,7 +40,6 @@ body .navbar {
   padding-bottom: 20px;
 }
 
-
 footer,
 footer a {
   color: var(--matr-navbar-text-color);
@@ -52,4 +51,7 @@ body {
   background: fixed center url("images/bg2.jpg");
 }
 
-
+.page-title {
+  color: white;
+  text-shadow: 2px 1px 2px black;
+}
