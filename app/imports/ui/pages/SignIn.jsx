@@ -39,7 +39,7 @@ const SignIn = () => {
   if (redirect) {
     return (<Navigate to="/" />);
   }
-  // Otherwise return the Login form.
+  // Otherwise return the Login form.met
   return (
     <div className="py-5">
       <Container id="signin-page" className="align-items-center py-5">
