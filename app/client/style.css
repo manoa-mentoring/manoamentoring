@@ -3,7 +3,7 @@
 
 /* Set up some CSS variables to theme the application. */
 :root {
-  --matr-navbar-bg: rgb(0, 100, 0); /* Dark green */
+  --matr-navbar-bg: rgb(165, 168, 180); /* Dark green */
   --matr-navbar-bg-rgb: 0, 100, 0;
   --matr-navbar-text-color: #ffffff; /* White text for dark background */
   --matr-navbar-highlight-text: rgb(255, 255, 255); /* Black */
@@ -13,7 +13,7 @@
  See https://getbootstrap.com/docs/5.2/customize/css-variables/
  */
 body {
-  --bs-dark: var(--matr-navbar-bg);
+  --bs-light: var(--matr-navbar-bg);
   --bs-dark-rgb: var(--matr-navbar-bg-rgb);
   background-size: cover;
 }
@@ -45,11 +45,13 @@ footer a {
   color: var(--matr-navbar-text-color);
 }
 
-/* Add background image */
+/* Add gradient background */
 body {
   --bg-light-rgb: var(--matr-navbar-bg-rgb);
-  background: fixed center url("images/bg2.jpg");
+  background: linear-gradient(to right, rgba(169, 169, 169, 0.6), rgba(169, 169, 169, 0.6)), fixed center right 12% / cover url("images/bg2.jpg");
 }
+
+
 
 .page-title {
   color: white;
