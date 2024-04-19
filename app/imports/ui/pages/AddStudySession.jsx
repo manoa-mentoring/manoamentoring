@@ -5,7 +5,7 @@ import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import SimpleSchema from 'simpl-schema';
-import StudySession from '../components/StudySession';
+import { StudySessions } from '../../api/studysession/StudySession';
 
 // Create a schema to specify the structure of the data to appear in the form.
 const formSchema = new SimpleSchema({
@@ -28,7 +28,7 @@ const AddStudySession = () => {
   const submit = (data, formRef) => {
     const { name, subject, location, hostName, dateStart, dateEnd, image, description } = data;
     const owner = Meteor.user().username;
-    StudySession.collection.insert(
+    StudySessions.collection.insert(
       { name, subject, location, hostName, dateStart, dateEnd, image, description, owner },
       (error) => {
         if (error) {
@@ -49,12 +49,12 @@ const AddStudySession = () => {
         <Col xs={10}>
           <Card>
             <Card.Body>
-              <Row className="text-center"><h2>Add Contact</h2></Row>
+              <Row className="text-center"><h2>Create Study Session</h2></Row>
               <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => submit(data, fRef)}>
                 <Row className="mb-3">
-                  <Col><TextField name="name" /></Col>
-                  <Col><TextField name="subject" /></Col>
+                  <Col><TextField name="name" label="Session name" /></Col>
                   <Col><TextField name="hostName" /></Col>
+                  <Col><TextField name="subject" /></Col>
                 </Row>
                 <Row className="mb-3">
                   <Col><DateField name="dateStart" /></Col>
