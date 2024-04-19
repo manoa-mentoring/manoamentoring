@@ -5,6 +5,7 @@ import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import SimpleSchema from 'simpl-schema';
+import { Profiles } from '../../api/profile/Profiles';
 import { Contacts } from '../../api/contact/Contacts';
 
 // Create a schema to specify the structure of the data to appear in the form.
@@ -29,10 +30,10 @@ const CreateProfile = () => {
 
   // On submit, insert the data.
   const submit = (data, formRef) => {
-    const { firstName, lastName, address, image, description } = data;
+    const { firstName, lastName, address, image, gradYear, major, position, description } = data;
     const owner = Meteor.user().username;
-    Contacts.collection.insert(
-      { firstName, lastName, address, image, description, owner },
+    Profiles.collection.insert(
+      { firstName, lastName, address, image, gradYear, major, position, description, owner },
       (error) => {
         if (error) {
           swal('Error', error.message, 'error');
