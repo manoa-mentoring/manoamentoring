@@ -20,6 +20,7 @@ import EditContact from '../pages/EditContact';
 import ListProfiles from '../pages/ListProfiles';
 import ListCurrentProfile from '../pages/ListCurrentProfile';
 import UserHomePage from '../pages/UserHomePage';
+import CreateProfile from '../pages/CreateProfile';
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 const App = () => {
   const { ready } = useTracker(() => {
@@ -42,7 +43,7 @@ const App = () => {
           <Route path="/view-profiles" element={<ProtectedRoute><ListProfiles /></ProtectedRoute>} /> {/* Added link to viewable profiles */}
           <Route path="/my-profile" element={<ProtectedRoute><ListCurrentProfile /></ProtectedRoute>} /> {/* Added link to viewable profiles */}
           <Route path="/user-home" element={<ProtectedRoute><UserHomePage /></ProtectedRoute>} /> {/* Added link to viewable profiles */}
-          <Route path="/add" element={<ProtectedRoute><AddContact /></ProtectedRoute>} />
+          <Route path="/create" element={<ProtectedRoute><CreateProfile /></ProtectedRoute>} />
           <Route path="/edit/:_id" element={<ProtectedRoute><EditContact /></ProtectedRoute>} />
           <Route path="/admin" element={<AdminProtectedRoute ready={ready}><ListContactsAdmin /></AdminProtectedRoute>} />
           <Route path="/notauthorized" element={<NotAuthorized />} />
