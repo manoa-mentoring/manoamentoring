@@ -9,9 +9,7 @@
   --matr-navbar-highlight-text: rgb(255, 255, 255); /* Black */
 }
 
-/* Change bootstrap variable values.
- See https://getbootstrap.com/docs/5.2/customize/css-variables/
- */
+/* Change bootstrap variable values. See https://getbootstrap.com/docs/5.2/customize/css-variables/ */
 body {
   --bs-light: var(--matr-navbar-bg);
   --bs-dark-rgb: var(--matr-navbar-bg-rgb);
@@ -44,16 +42,18 @@ footer,
 footer a {
   color: var(--matr-navbar-text-color);
 }
-
 /* Add gradient background */
 body {
   --bg-light-rgb: var(--matr-navbar-bg-rgb);
   background: linear-gradient(to right, rgba(169, 169, 169, 0.6), rgba(169, 169, 169, 0.6)), fixed center right 12% / cover url("images/bg2.jpg");
+= = = = = = = body {
+  --bg-light-rgb: var(--matr-navbar-bg-rgb);
+  background: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), fixed center / cover url("https://cdn.prometheanworld.com/wp-content/uploads/2023/01/18150826/National-mentoring-month-USA-and-UKI-1296x550.jpg");
+>>> >>> > Stashed changes
 }
 
-
-
-.page-title {
-  color: white;
-  text-shadow: 2px 1px 2px black;
+  .page-title {
+    color: white;
+    text-shadow: 2px 1px 2px black;
+  }
 }
