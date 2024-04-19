@@ -50,6 +50,19 @@
       "description": "Carleton Moore is a Researcher in the Department of Information and Computer Sciences at the University of Hawaii at Manoa. He is a member of the Collaborative Software Development Laboratory.",
       "owner": "john3@foo.com"
     }
+  ],
+
+  "defaultStudySessions": [
+    {
+      "name": "ICS 314 Bootstrap Study",
+      "subject": "ICS 314",
+      "location": "POST 200",
+      "hostName": "Philip Johnson",
+      "dateStart": "2024-05-10T14:00", "dateEnd": "2024-05-10T14:00",
+      "image": "app/public/images/bootstrap-logo-vector.png",
+      "description": "Are you stuck in a bootstrap rut? Stop by and we can help tackle any problems or questions you have.",
+      "owner": "john@foo.com"
+    }
   ]
 }
 
