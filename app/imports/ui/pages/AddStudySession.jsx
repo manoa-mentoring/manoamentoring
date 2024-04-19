@@ -21,7 +21,7 @@ const formSchema = new SimpleSchema({
 
 const bridge = new SimpleSchema2Bridge(formSchema);
 
-/* Renders the AddStuff page for adding a document. */
+/* Renders the AddStudySession page for adding a document. */
 const AddStudySession = () => {
 
   // On submit, insert the data.
