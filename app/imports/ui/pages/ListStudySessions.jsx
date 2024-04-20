@@ -30,7 +30,7 @@ const ListStudySessions = () => {
             {sessions.map((session) => (
               <Col key={session._id}>
                 <StudySession
-                  studySession={StudySession}
+                  studySession={session}
                 />
               </Col>
             ))}
