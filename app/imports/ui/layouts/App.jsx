@@ -10,6 +10,7 @@ import ListContacts from '../pages/ListContacts'; // Changed import
 import NotFound from '../pages/NotFound';
 import SignUp from '../pages/SignUp';
 import SignOut from '../pages/SignOut';
+// eslint-disable-next-line import/no-named-as-default,import/no-named-as-default-member
 import NavBar from '../components/NavBar';
 import SignIn from '../pages/SignIn';
 import NotAuthorized from '../pages/NotAuthorized';
@@ -22,7 +23,7 @@ import UserHomePage from '../pages/UserHomePage';
 import AddStudySession from '../pages/AddStudySession';
 
 import ListStudySessions from '../pages/ListStudySessions';
-=======
+
 import EditStudySession from '../pages/EditStudySession';
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 const App = () => {
