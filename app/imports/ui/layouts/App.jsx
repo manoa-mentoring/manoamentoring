@@ -15,12 +15,14 @@ import SignIn from '../pages/SignIn';
 import NotAuthorized from '../pages/NotAuthorized';
 import LoadingSpinner from '../components/LoadingSpinner';
 import ListContactsAdmin from '../pages/ListContactsAdmin';
-import AddContact from '../pages/AddContact';
 import EditContact from '../pages/EditContact';
 import ListProfiles from '../pages/ListProfiles';
 import ListCurrentProfile from '../pages/ListCurrentProfile';
 import UserHomePage from '../pages/UserHomePage';
 import AddStudySession from '../pages/AddStudySession';
+
+import ListStudySessions from '../pages/ListStudySessions';
+=======
 import EditStudySession from '../pages/EditStudySession';
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 const App = () => {
@@ -45,6 +47,7 @@ const App = () => {
           <Route path="/my-profile" element={<ProtectedRoute><ListCurrentProfile /></ProtectedRoute>} /> {/* Added link to viewable profiles */}
           <Route path="/user-home" element={<ProtectedRoute><UserHomePage /></ProtectedRoute>} /> {/* Added link to viewable profiles */}
           <Route path="/create-study-session" element={<ProtectedRoute><AddStudySession /></ProtectedRoute>} />
+          <Route path="/view-study-session" element={<ProtectedRoute><ListStudySessions /></ProtectedRoute>} />
           <Route path="/edit/:_id" element={<ProtectedRoute><EditContact /></ProtectedRoute>} />
           <Route path="/edit-study-session/:_id" element={<ProtectedRoute><EditStudySession /></ProtectedRoute>} />
           <Route path="/admin" element={<AdminProtectedRoute ready={ready}><ListContactsAdmin /></AdminProtectedRoute>} />

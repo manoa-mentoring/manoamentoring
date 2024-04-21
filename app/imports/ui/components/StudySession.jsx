@@ -17,7 +17,7 @@ const StudySession = ({ studySession }) => (
           <Card.Subtitle className="text-muted">
             <Badge bg="success"> {studySession.subject} </Badge>
             <br />
-            <p className="mt-1"> Time: {studySession.dateStart} - {studySession.dateEnd}</p>
+            <p className="mt-1"> Time: {studySession.dateStart.toLocaleString()} - {studySession.dateEnd.toLocaleString()}</p>
           </Card.Subtitle>
         </Col>
       </Row>
