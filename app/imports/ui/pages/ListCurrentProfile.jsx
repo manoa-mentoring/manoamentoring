@@ -5,7 +5,7 @@ import { Col, Container, Row } from 'react-bootstrap';
 import { useTracker } from 'meteor/react-meteor-data';
 import LoadingSpinner from '../components/LoadingSpinner';
 import { Profiles } from '../../api/profile/Profiles';
-import Profile from '../components/CurrentProfile'; // Assuming contacts is exported from Notes
+import Profile from '../components/CurrentProfile';
 
 const ListCurrentProfile = () => {
   const { ready, profiles } = useTracker(() => {
@@ -14,7 +14,7 @@ const ListCurrentProfile = () => {
     const rdy = subscription.ready();
     const profileItems = Profiles.collection.find({}).fetch();
     return {
-      contacts: profileItems,
+      profiles: profileItems,
       ready: rdy,
     };
   }, []);
