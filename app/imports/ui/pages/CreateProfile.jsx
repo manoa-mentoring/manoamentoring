@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
+import { Navigate } from 'react-router-dom';
 import { Card, Col, Container, Row } from 'react-bootstrap';
 import { AutoForm, ErrorsField, LongTextField, SelectField, SubmitField, TextField } from 'uniforms-bootstrap5';
 import swal from 'sweetalert';
@@ -6,7 +8,6 @@ import { Meteor } from 'meteor/meteor';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import SimpleSchema from 'simpl-schema';
 import { Profiles } from '../../api/profile/Profiles';
-import { Contacts } from '../../api/contact/Contacts';
 
 // Create a schema to specify the structure of the data to appear in the form.
 const formSchema = new SimpleSchema({
@@ -26,7 +27,8 @@ const formSchema = new SimpleSchema({
 const bridge = new SimpleSchema2Bridge(formSchema);
 
 /* Renders the AddStuff page for adding a document. */
-const CreateProfile = () => {
+const CreateProfile = ({ location }) => {
+  const [redirectToReferer, setRedirectToRef] = useState(false);
 
   // On submit, insert the data.
   const submit = (data, formRef) => {
@@ -38,14 +40,21 @@ const CreateProfile = () => {
         if (error) {
           swal('Error', error.message, 'error');
         } else {
-          swal('Success', 'Item added successfully', 'success');
+          swal('Success', 'Profile Created!', 'success');
           formRef.reset();
+          setRedirectToRef(true);
         }
       },
     );
   };
 
   // Render the form. Use Uniforms: https://github.com/vazco/uniforms
+  /* Display the signup form. Redirect to add page after successful registration and login. */
+  const { from } = location?.state || { from: { pathname: '/user-home' } };
+  // if correct authentication, redirect to from: page instead of signup screen
+  if (redirectToReferer) {
+    return <Navigate to={from} />;
+  }
   let fRef = null;
   return (
     <Container className="py-3">
@@ -80,6 +89,17 @@ const CreateProfile = () => {
       </Row>
     </Container>
   );
+};
+
+/* Ensure that the React Router location object is available in case we need to redirect. */
+CreateProfile.propTypes = {
+  location: PropTypes.shape({
+    state: PropTypes.string,
+  }),
+};
+
+CreateProfile.defaultProps = {
+  location: { state: '' },
 };
 
 export default CreateProfile;
