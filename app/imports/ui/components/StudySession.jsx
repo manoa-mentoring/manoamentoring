@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Card, Image, Row, Col, ListGroup, Badge } from 'react-bootstrap';
 import { Envelope } from 'react-bootstrap-icons';
+import { Link } from 'react-router-dom';
+import editStudySession from '../pages/EditStudySession';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 const StudySession = ({ studySession }) => (
@@ -29,6 +31,7 @@ const StudySession = ({ studySession }) => (
           <Envelope /> {studySession.owner}
         </ListGroup.Item>
       </ListGroup>
+      <Link to={`/edit/${editStudySession._id}`}>Edit</Link>
     </Card.Body>
   </Card>
 );
