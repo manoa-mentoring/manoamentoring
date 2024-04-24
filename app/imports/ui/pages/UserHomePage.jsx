@@ -7,9 +7,8 @@ const UserHomePage = () => (
     <Row className="justify-content-center align-items-center py-4 mb-4 extra-space">
       <Col xs={10} md={4} className="mb-4 text-center">
         <h1 style={{ color: 'var(--matr-navbar-text-color)' }}>Welcome back user!</h1>
-        <p className="text-lg-left" style={{ color: 'var(--matr-navbar-text-color)' }}></p>
         <Link to="/my-profile">
-          <button className="btn btn-primary" style={{ backgroundColor: '#024731', borderColor: '#024731' }}>Go to Profile</button>
+          <button type="button" className= "btn-primary" style={{ backgroundColor: '#024731', borderColor: '#024731' }}>Go to Profile</button>
         </Link>
       </Col>
     </Row>
@@ -26,11 +25,11 @@ const UserHomePage = () => (
       </Col>
       <Col xs={6} md={3} className="mb-4">
         {/* Placeholder for recommended picture 2 */}
-        <img src="/images/study-sesh-2.png" alt="Recommended Picture 2" style={{ maxWidth: '100%' }} />
+        <img src="/images/study-sesh-2.png" style={{ maxWidth: '100%' }} />
       </Col>
       <Col xs={6} md={3} className="mb-4">
         {/* Placeholder for recommended picture 3 */}
-        <img src="/images/study-sesh-3.png" alt="Recommended Picture 3" style={{ maxWidth: '100%' }} />
+        <img src="/images/study-sesh-3.png" style={{ maxWidth: '100%' }} />
       </Col>
       {/* Add more Col components for additional recommended pictures */}
     </Row>
