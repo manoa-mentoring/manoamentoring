@@ -65,7 +65,3 @@ body {
   text-shadow: 2px 1px 2px black;
 }
 
-/* Customizing Calendar */
-.fc-day-header {
-  color: white !important; /* Override the color of the month labels */
-}
