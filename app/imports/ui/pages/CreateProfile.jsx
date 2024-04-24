@@ -21,6 +21,10 @@ const formSchema = new SimpleSchema({
     type: String,
     allowedValues: ['Mentor', 'Student'],
   },
+  prefer: {
+    type: String,
+    allowedValues: ['Online', 'In-Person', 'Online/In-Person'],
+  },
   description: String,
 });
 
@@ -32,10 +36,10 @@ const CreateProfile = ({ location }) => {
 
   // On submit, insert the data.
   const submit = (data, formRef) => {
-    const { firstName, lastName, address, image, gradYear, major, position, description } = data;
+    const { firstName, lastName, address, image, gradYear, major, position, description, prefer } = data;
     const owner = Meteor.user().username;
     Profiles.collection.insert(
-      { firstName, lastName, address, image, gradYear, major, position, description, owner },
+      { firstName, lastName, address, image, gradYear, major, position, description, owner, prefer },
       (error) => {
         if (error) {
           swal('Error', error.message, 'error');
@@ -79,6 +83,9 @@ const CreateProfile = ({ location }) => {
                   <Col><TextField name="gradYear" /></Col>
                   <Col><TextField name="major" /></Col>
                   <Col><SelectField name="position" placeholder="Are you a Mentor or a Student?" /></Col>
+                </Row>
+                <Row>
+                  <Col><SelectField name="prefer" placeholder="Availability?" /></Col>
                 </Row>
                 <ErrorsField />
                 <SubmitField value="Submit" />

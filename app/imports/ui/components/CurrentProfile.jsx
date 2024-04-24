@@ -17,6 +17,8 @@ const Profile = ({ profile }) => (
           <Card.Subtitle className="text-muted">
             <Badge bg="success"> {profile.major} </Badge>
             <br />
+            <Badge bg="primary"> {profile.position}</Badge>
+            <br />
             <p className="mt-1">{profile.gradYear}</p>
           </Card.Subtitle>
         </Col>
@@ -28,7 +30,7 @@ const Profile = ({ profile }) => (
         <ListGroup.Item>
           <strong>Prefers</strong>
           <br />
-          Online & In-Person
+          {profile.prefer}
         </ListGroup.Item>
         <ListGroup.Item>
           <strong>Courses I&apos;m Taking</strong>
@@ -58,6 +60,8 @@ Profile.propTypes = {
     image: PropTypes.string,
     gradYear: PropTypes.string,
     major: PropTypes.string,
+    position: PropTypes.string,
+    prefer: PropTypes.string,
     description: PropTypes.string,
     owner: PropTypes.string,
     _id: PropTypes.string,

@@ -2,10 +2,11 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Link, Navigate } from 'react-router-dom';
 import { Accounts } from 'meteor/accounts-base';
-import { Alert, Card, Col, Container, Row } from 'react-bootstrap';
+import { Alert, Button, Card, Col, Container, InputGroup, Row } from 'react-bootstrap';
 import SimpleSchema from 'simpl-schema';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import { AutoForm, ErrorsField, SubmitField, TextField } from 'uniforms-bootstrap5';
+import { EyeFill } from 'react-bootstrap-icons';
 
 /**
  * SignUp component is similar to signin component, but we create a new user instead.
@@ -13,6 +14,7 @@ import { AutoForm, ErrorsField, SubmitField, TextField } from 'uniforms-bootstra
 const SignUp = ({ location }) => {
   const [error, setError] = useState('');
   const [redirectToReferer, setRedirectToRef] = useState(false);
+  const [showPassword, setShowPassword] = useState(false); // State to manage password visibility
 
   const schema = new SimpleSchema({
     email: String,
@@ -53,7 +55,10 @@ const SignUp = ({ location }) => {
             <Card>
               <Card.Body>
                 <TextField name="email" placeholder="E-mail address" />
-                <TextField name="password" placeholder="Password" type="password" />
+                <InputGroup>
+                  <TextField name="password" placeholder="Password" type={showPassword ? 'text' : 'password'} style={{ width: '450px' }} />
+                  <Button type="button" onClick={() => setShowPassword(!showPassword)} class="btn btn-light" className="button-height"><EyeFill /></Button>
+                </InputGroup>
                 <ErrorsField />
                 <SubmitField value="Create Profile" />
               </Card.Body>

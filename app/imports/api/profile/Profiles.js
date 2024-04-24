@@ -21,6 +21,10 @@ class ProfilesCollection {
         type: String,
         allowedValues: ['Mentor', 'Student'],
       },
+      prefer: {
+        type: String,
+        allowedValues: ['Online', 'In-Person', 'Online/In-Person'],
+      },
       image: String,
       description: String,
       owner: String,
