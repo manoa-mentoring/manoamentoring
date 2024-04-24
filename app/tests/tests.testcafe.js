@@ -28,6 +28,14 @@ test('Test that landing page shows up', async (testController) => {
   await landingPage.isDisplayed(testController);
 });
 
+test('Test that signup and signout work', async (testController) => {
+  await navBar.gotoSignUpPage(testController);
+  await signupPage.signupUser(testController, credentials2.username, credentials2.password);
+  await navBar.isLoggedIn(testController, credentials2.username);
+  await navBar.logout(testController);
+  await signoutPage.isDisplayed(testController);
+});
+
 test('Test that create profile works', async (testController) => {
   await navBar.gotoSignUpPage(testController);
   await signupPage.signupUser(testController, credentials4.username, credentials4.password);
@@ -40,14 +48,6 @@ test('Test that user home page shows up and is functional', async (testControlle
   await signinPage.signin(testController, credentials.username, credentials.password);
   await userhomePage.isDisplayed(testController);
   await navBar.logout(testController);
-});
-
-test('Test that signup and signout work', async (testController) => {
-  await navBar.gotoSignUpPage(testController);
-  await signupPage.signupUser(testController, credentials2.username, credentials2.password);
-  await navBar.isLoggedIn(testController, credentials2.username);
-  await navBar.logout(testController);
-  await signoutPage.isDisplayed(testController);
 });
 
 test('Test that signin and signout work', async (testController) => {
