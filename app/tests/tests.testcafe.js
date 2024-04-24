@@ -3,6 +3,7 @@ import { signinPage } from './signin.page';
 import { signoutPage } from './signout.page';
 import { listcontactsadminPage } from './listcontactsadmin.page';
 import { navBar } from './navbar.component';
+import { listStudySessionsPage } from './liststudysessions.page';
 import { addStudySessionPage } from './addstudysession.page';
 import { editStudySessionPage } from './editstudysession.page';
 
@@ -26,6 +27,12 @@ test('Test that signin and signout work', async (testController) => {
   await signoutPage.isDisplayed(testController);
 });
 
+test('Test that View Study Sessions shows up', async (testController) => {
+  await navBar.gotoSignInPage(testController);
+  await signinPage.signin(testController, credentials.username, credentials.password);
+  await navBar.gotoListStudySessionsPage(testController);
+  await listStudySessionsPage.isDisplayed(testController);
+  await navBar.logout(testController);
 
 test('Test that the list contact admin pages displays', async (testController) => {
   await navBar.gotoSignInPage(testController);
@@ -51,4 +58,5 @@ test('Test that the Edit Session page works', async (testController) => {
   await navBar.gotoEditSessionPage(testController);
   await editStudySessionPage.isDisplayed(testController);
   await editStudySessionPage.fillForm(testController);
+
 });
