@@ -2,7 +2,7 @@ import { Selector } from 'testcafe';
 
 class ListStudySessionsPage {
   constructor() {
-    this.pageId = '#view-study-session-page';
+    this.pageId = '#view-session-nav';
     this.pageSelector = Selector(this.pageId);
   }
 

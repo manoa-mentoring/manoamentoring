@@ -25,5 +25,9 @@ test('Test that signin and signout work', async (testController) => {
 });
 
 test('Test that View Study Sessions shows up', async (testController) => {
+  await navBar.gotoSignInPage(testController);
+  await signinPage.signin(testController, credentials.username, credentials.password);
+  await navBar.gotoListStudySessionsPage(testController);
   await listStudySessionsPage.isDisplayed(testController);
+  await navBar.logout(testController);
 });
