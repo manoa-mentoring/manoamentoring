@@ -44,7 +44,7 @@ const AddStudySession = () => {
   // Render the form. Use Uniforms: https://github.com/vazco/uniforms
   let fRef = null;
   return (
-    <Container className="py-3">
+    <Container id="add-study-session-page" className="py-3">
       <Row className="justify-content-center">
         <Col xs={10}>
           <Card>
@@ -52,23 +52,23 @@ const AddStudySession = () => {
               <Row className="text-center"><h2>Create Study Session</h2></Row>
               <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => submit(data, fRef)}>
                 <Row className="mb-3">
-                  <Col><TextField name="name" label="Session name" /></Col>
-                  <Col><TextField name="hostName" /></Col>
-                  <Col><TextField name="subject" /></Col>
+                  <Col><TextField id="session-name" name="name" label="Session name" /></Col>
+                  <Col><TextField id="host-name" name="hostName" /></Col>
+                  <Col><TextField id="subject" name="subject" /></Col>
                 </Row>
                 <Row className="mb-3">
-                  <Col><DateField name="dateStart" /></Col>
-                  <Col><DateField name="dateEnd" /></Col>
+                  <Col><DateField id="date-start" name="dateStart" /></Col>
+                  <Col><DateField id="date-end" name="dateEnd" /></Col>
                 </Row>
                 <Row className="mb-3">
-                  <Col><TextField name="location" /></Col>
-                  <Col><TextField name="image" /></Col>
+                  <Col><TextField id="location" name="location" /></Col>
+                  <Col><TextField id="image" name="image" /></Col>
                 </Row>
                 <Row>
-                  <Col><LongTextField name="description" /></Col>
+                  <Col><LongTextField id="description" name="description" /></Col>
                 </Row>
                 <ErrorsField />
-                <SubmitField />
+                <SubmitField id="submit" />
               </AutoForm>
             </Card.Body>
           </Card>
