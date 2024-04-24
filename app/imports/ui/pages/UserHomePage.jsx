@@ -3,7 +3,7 @@ import { Container, Col, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 const UserHomePage = () => (
-  <Container className="py-3">
+  <Container id="userhome-page" className="py-3">
     <Row className="justify-content-center align-items-center py-4 mb-4 extra-space">
       <Col xs={10} md={4} className="mb-4 text-center">
         <h1 style={{ color: 'var(--matr-navbar-text-color)' }}>Welcome back user!</h1>

@@ -1,4 +1,5 @@
 import { landingPage } from './landing.page';
+import { userhomePage } from './userhome.page';
 import { signinPage } from './signin.page';
 import { signoutPage } from './signout.page';
 import { navBar } from './navbar.component';
@@ -21,4 +22,11 @@ test('Test that signin and signout work', async (testController) => {
   await navBar.isLoggedIn(testController, credentials.username);
   await navBar.logout(testController);
   await signoutPage.isDisplayed(testController);
+});
+
+test('Test that user home page shows up and is functional', async (testController) => {
+  await navBar.gotoSignInPage(testController);
+  await signinPage.signin(testController, credentials.username, credentials.password);
+  await userhomePage.isDisplayed(testController);
+  await navBar.logout(testController);
 });
