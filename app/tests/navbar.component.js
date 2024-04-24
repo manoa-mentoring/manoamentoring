@@ -53,15 +53,14 @@ class NavBar {
     await testController.click('#login-dropdown-sign-up');
   }
 
-
   async gotoListContactsAdmin(testController) {
     await testController.click('#list-stuff-admin-nav');
   }
-  
+
   async gotoCreateSessionPage(testController) {
     await testController.click('#create-session-nav');
   }
-  
+
   async gotoEditSessionPage(testController) {
     await testController.click('#edit-session-nav');
   }
