@@ -1,5 +1,6 @@
 import { landingPage } from './landing.page';
 import { userhomePage } from './userhome.page';
+import { calendarPage } from './calendar.page';
 import { signinPage } from './signin.page';
 import { signoutPage } from './signout.page';
 import { navBar } from './navbar.component';
@@ -28,5 +29,13 @@ test('Test that user home page shows up and is functional', async (testControlle
   await navBar.gotoSignInPage(testController);
   await signinPage.signin(testController, credentials.username, credentials.password);
   await userhomePage.isDisplayed(testController);
+  await navBar.logout(testController);
+});
+
+test.only('Test that calendar page is present', async (testController) => {
+  await navBar.gotoSignInPage(testController);
+  await signinPage.signin(testController, credentials.username, credentials.password);
+  await navBar.gotoCalendarPage(testController);
+  await calendarPage.isDisplayed(testController);
   await navBar.logout(testController);
 });
