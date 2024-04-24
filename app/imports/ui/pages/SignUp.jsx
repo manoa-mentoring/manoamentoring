@@ -54,13 +54,13 @@ const SignUp = ({ location }) => {
           <AutoForm schema={bridge} onSubmit={data => submit(data)}>
             <Card>
               <Card.Body>
-                <TextField name="email" placeholder="E-mail address" />
+                <TextField id="signup-form-email" name="email" placeholder="E-mail address" />
                 <InputGroup>
-                  <TextField name="password" placeholder="Password" type={showPassword ? 'text' : 'password'} style={{ width: '450px' }} />
+                  <TextField id="signup-form-password" name="password" placeholder="Password" type={showPassword ? 'text' : 'password'} style={{ width: '450px' }} />
                   <Button type="button" onClick={() => setShowPassword(!showPassword)} class="btn btn-light" className="button-height"><EyeFill /></Button>
                 </InputGroup>
                 <ErrorsField />
-                <SubmitField value="Create Profile" />
+                <SubmitField id="signup-form-submit" value="Create Profile" />
               </Card.Body>
             </Card>
           </AutoForm>
