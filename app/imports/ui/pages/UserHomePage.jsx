@@ -22,7 +22,7 @@ const UserHomePage = () => (
     <Row className="justify-content-center">
       <Col xs={6} md={3} className="mb-4">
         {/* Placeholder for recommended picture 1 */}
-        <img src="/images/study-sesh-1.png" alt="Recommended Picture 1" style={{ maxWidth: '100%' }} />
+
       </Col>
       <Col xs={6} md={3} className="mb-4">
         {/* Placeholder for recommended picture 2 */}
