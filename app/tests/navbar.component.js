@@ -52,6 +52,15 @@ class NavBar {
     await testController.click('#login-dropdown');
     await testController.click('#login-dropdown-sign-up');
   }
+
+  /** Go to the list study sessions page. */
+  async gotoListStudySessionsPage(testController) {
+    const visible = await Selector('#basic-navbar-nav').visible;
+    if (!visible) {
+      await testController.click('button.navbar-toggler');
+    }
+    await testController.click('#view-study-session-page');
+  }
 }
 
 export const navBar = new NavBar();
