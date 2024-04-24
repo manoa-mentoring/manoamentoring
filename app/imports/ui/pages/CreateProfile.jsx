@@ -61,7 +61,7 @@ const CreateProfile = ({ location }) => {
   }
   let fRef = null;
   return (
-    <Container className="py-3">
+    <Container id="createprofile-page" className="py-3">
       <Row className="justify-content-center">
         <Col xs={10}>
           <Card>
@@ -69,26 +69,26 @@ const CreateProfile = ({ location }) => {
               <Row className="text-center"><h2>Create Profile</h2></Row>
               <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => submit(data, fRef)}>
                 <Row className="mb-3">
-                  <Col><TextField name="firstName" /></Col>
-                  <Col><TextField name="lastName" /></Col>
+                  <Col><TextField id="createprofile-form-firstName" name="firstName" /></Col>
+                  <Col><TextField id="createprofile-form-lastName" name="lastName" /></Col>
                 </Row>
                 <Row className="mb-3">
-                  <Col><TextField name="address" /></Col>
-                  <Col><TextField name="image" /></Col>
+                  <Col><TextField id="createprofile-form-address" name="address" /></Col>
+                  <Col><TextField id="createprofile-form-image" name="image" /></Col>
                 </Row>
                 <Row>
-                  <Col><LongTextField name="description" /></Col>
+                  <Col><LongTextField id="createprofile-form-description" name="description" /></Col>
                 </Row>
                 <Row>
-                  <Col><TextField name="gradYear" /></Col>
-                  <Col><TextField name="major" /></Col>
-                  <Col><SelectField name="position" placeholder="Are you a Mentor or a Student?" /></Col>
+                  <Col><TextField id="createprofile-form-gradYear" name="gradYear" /></Col>
+                  <Col><TextField id="createprofile-form-major" name="major" /></Col>
+                  <Col><SelectField id="createprofile-form-position" name="position" placeholder="Are you a Mentor or a Student?" /></Col>
                 </Row>
                 <Row>
-                  <Col><SelectField name="prefer" placeholder="Availability?" /></Col>
+                  <Col><SelectField id="createprofile-form-prefer" name="prefer" placeholder="Availability?" /></Col>
                 </Row>
                 <ErrorsField />
-                <SubmitField value="Submit" />
+                <SubmitField id="createprofile-form-submit" value="Submit" />
               </AutoForm>
             </Card.Body>
           </Card>
