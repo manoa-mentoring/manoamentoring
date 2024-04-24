@@ -69,7 +69,7 @@
       "location": "POST 200",
       "hostName": "Philip Johnson",
       "dateStart": "2024-05-10T14:00", "dateEnd": "2024-05-10T14:00",
-      "image": "app/public/images/bootstrap-logo-vector.png",
+      "image": "https://logovectorseek.com/wp-content/uploads/2019/10/bootstrap-logo-vector.png",
       "description": "Are you stuck in a bootstrap rut? Stop by and we can help tackle any problems or questions you have.",
       "owner": "john@foo.com"
     }
