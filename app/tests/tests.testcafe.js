@@ -2,6 +2,8 @@ import { landingPage } from './landing.page';
 import { signinPage } from './signin.page';
 import { signoutPage } from './signout.page';
 import { navBar } from './navbar.component';
+import { addStudySessionPage } from './addstudysession.page';
+import { editStudySessionPage } from './editstudysession.page';
 
 /* global fixture:false, test:false */
 
@@ -21,4 +23,22 @@ test('Test that signin and signout work', async (testController) => {
   await navBar.isLoggedIn(testController, credentials.username);
   await navBar.logout(testController);
   await signoutPage.isDisplayed(testController);
+});
+
+test('Test that the Create Session page works', async (testController) => {
+  await navBar.gotoSignInPage(testController);
+  await signinPage.signin(testController, credentials.username, credentials.password);
+  await navBar.isLoggedIn(testController, credentials.username);
+  await navBar.gotoCreateSessionPage(testController);
+  await addStudySessionPage.isDisplayed(testController);
+  await addStudySessionPage.fillForm(testController);
+});
+
+test('Test that the Edit Session page works', async (testController) => {
+  await navBar.gotoSignInPage(testController);
+  await signinPage.signin(testController, credentials.username, credentials.password);
+  await navBar.isLoggedIn(testController, credentials.username);
+  await navBar.gotoEditSessionPage(testController);
+  await editStudySessionPage.isDisplayed(testController);
+  await editStudySessionPage.fillForm(testController);
 });
