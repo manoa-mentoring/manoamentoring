@@ -32,7 +32,7 @@ test('Test that user home page shows up and is functional', async (testControlle
   await navBar.logout(testController);
 });
 
-test.only('Test that calendar page is present', async (testController) => {
+test('Test that calendar page is present', async (testController) => {
   await navBar.gotoSignInPage(testController);
   await signinPage.signin(testController, credentials.username, credentials.password);
   await navBar.gotoCalendarPage(testController);
