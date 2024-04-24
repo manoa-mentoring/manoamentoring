@@ -1,6 +1,7 @@
 import { landingPage } from './landing.page';
 import { signinPage } from './signin.page';
 import { signoutPage } from './signout.page';
+import { listcontactsadminPage } from './listcontactsadmin.page';
 import { navBar } from './navbar.component';
 import { addStudySessionPage } from './addstudysession.page';
 import { editStudySessionPage } from './editstudysession.page';
@@ -9,7 +10,7 @@ import { editStudySessionPage } from './editstudysession.page';
 
 /** Credentials for one of the sample users defined in settings.development.json. */
 const credentials = { username: 'john@foo.com', password: 'changeme' };
-
+const admincredentials = { username: 'admin@foo.com', password: 'changeme'};
 fixture('meteor-application-template-react localhost test with default db')
   .page('http://localhost:3000');
 
@@ -25,6 +26,15 @@ test('Test that signin and signout work', async (testController) => {
   await signoutPage.isDisplayed(testController);
 });
 
+
+test('Test that the list contact admin pages displays', async (testController) => {
+  await navBar.gotoSignInPage(testController);
+  await signinPage.signin(testController, admincredentials.username, admincredentials.password);
+  await navBar.gotoListContactsAdmin(testController);
+  await listcontactsadminPage.isDisplayed(testController);
+  await navBar.logout(testController);
+}
+     
 test('Test that the Create Session page works', async (testController) => {
   await navBar.gotoSignInPage(testController);
   await signinPage.signin(testController, credentials.username, credentials.password);
