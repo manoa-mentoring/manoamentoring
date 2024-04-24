@@ -36,9 +36,11 @@ const ListContactsAdmin = () => {
         <Col>
           <ul className="nav nav-tabs">
             <li className="nav-item">
+              {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
               <a className={`nav-link ${activeTab === 'CurrentStudyGroup' ? 'active' : ''}`} aria-current="page" href="#" onClick={() => handleTabClick('CurrentStudyGroup')}>Current Study Groups</a>
             </li>
             <li className="nav-item">
+              {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
               <a className={`nav-link ${activeTab === 'UserModeration' ? 'active' : ''}`} aria-current="page" href="#" onClick={() => handleTabClick('UserModeration')}>User Moderation
               </a>
             </li>
