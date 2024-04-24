@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { Link, Navigate } from 'react-router-dom';
 import { Meteor } from 'meteor/meteor';
-import { Alert, Card, Col, Container, Row } from 'react-bootstrap';
+import { Alert, Button, Card, Col, Container, InputGroup, Row } from 'react-bootstrap';
 import SimpleSchema from 'simpl-schema';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import { AutoForm, ErrorsField, SubmitField, TextField } from 'uniforms-bootstrap5';
+import { EyeFill } from 'react-bootstrap-icons';
 
 /**
  * Signin page overrides the form’s submit event and call Meteor’s loginWithPassword().
@@ -13,6 +14,7 @@ import { AutoForm, ErrorsField, SubmitField, TextField } from 'uniforms-bootstra
 const SignIn = () => {
   const [error, setError] = useState('');
   const [redirect, setRedirect] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
   const schema = new SimpleSchema({
     email: String,
     password: String,
@@ -52,9 +54,12 @@ const SignIn = () => {
               <Card>
                 <Card.Body>
                   <TextField id="signin-form-email" name="email" placeholder="E-mail address" />
-                  <TextField id="signin-form-password" name="password" placeholder="Password" type="password" />
+                  <InputGroup>
+                    <TextField id="signin-form-password" name="password" placeholder="Password" type={showPassword ? 'text' : 'password'} style={{ width: '561px' }} />
+                    <Button type="button" onClick={() => setShowPassword(!showPassword)} class="btn btn-light" className="button-height"><EyeFill /></Button>
+                  </InputGroup>
                   <ErrorsField />
-                  <SubmitField id="signin-form-submit" />
+                  <SubmitField id="signin-form-submit" value="Login" />
                 </Card.Body>
               </Card>
             </AutoForm>

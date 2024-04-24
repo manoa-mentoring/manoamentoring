@@ -10,17 +10,22 @@ import ListContacts from '../pages/ListContacts'; // Changed import
 import NotFound from '../pages/NotFound';
 import SignUp from '../pages/SignUp';
 import SignOut from '../pages/SignOut';
+// eslint-disable-next-line import/no-named-as-default,import/no-named-as-default-member
 import NavBar from '../components/NavBar';
 import SignIn from '../pages/SignIn';
 import NotAuthorized from '../pages/NotAuthorized';
 import LoadingSpinner from '../components/LoadingSpinner';
 import ListContactsAdmin from '../pages/ListContactsAdmin';
-import AddContact from '../pages/AddContact';
-import EditContact from '../pages/EditContact';
 import ListProfiles from '../pages/ListProfiles';
 import ListCurrentProfile from '../pages/ListCurrentProfile';
 import UserHomePage from '../pages/UserHomePage';
 import CalendarPage from '../pages/CalendarPage';
+import AddStudySession from '../pages/AddStudySession';
+import ListStudySessions from '../pages/ListStudySessions';
+import EditStudySession from '../pages/EditStudySession';
+import CreateProfile from '../pages/CreateProfile';
+import EditProfile from '../pages/EditProfile';
+
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 const App = () => {
   const { ready } = useTracker(() => {
@@ -44,8 +49,11 @@ const App = () => {
           <Route path="/calendar" element={<CalendarPage />} /> {/* Added the Calendar Page */}
           <Route path="/my-profile" element={<ProtectedRoute><ListCurrentProfile /></ProtectedRoute>} /> {/* Added link to viewable profiles */}
           <Route path="/user-home" element={<ProtectedRoute><UserHomePage /></ProtectedRoute>} /> {/* Added link to viewable profiles */}
-          <Route path="/add" element={<ProtectedRoute><AddContact /></ProtectedRoute>} />
-          <Route path="/edit/:_id" element={<ProtectedRoute><EditContact /></ProtectedRoute>} />
+          <Route path="/create-study-session" element={<ProtectedRoute><AddStudySession /></ProtectedRoute>} />
+          <Route path="/view-study-session" element={<ProtectedRoute><ListStudySessions /></ProtectedRoute>} />
+          <Route path="/create" element={<ProtectedRoute><CreateProfile /></ProtectedRoute>} />
+          <Route path="/edit/:_id" element={<ProtectedRoute><EditProfile /></ProtectedRoute>} />
+          <Route path="/edit-study-session/:_id" element={<ProtectedRoute><EditStudySession /></ProtectedRoute>} />
           <Route path="/admin" element={<AdminProtectedRoute ready={ready}><ListContactsAdmin /></AdminProtectedRoute>} />
           <Route path="/notauthorized" element={<NotAuthorized />} />
           <Route path="*" element={<NotFound />} />
