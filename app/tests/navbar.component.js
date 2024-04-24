@@ -53,6 +53,11 @@ class NavBar {
     await testController.click('#login-dropdown-sign-up');
   }
 
+  /** Go to the list study sessions page. */
+  async gotoListStudySessionsPage(testController) {
+    await testController.click('#view-session-nav');
+  }
+
   async gotoListContactsAdmin(testController) {
     await testController.click('#list-stuff-admin-nav');
   }
