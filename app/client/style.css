@@ -7,6 +7,15 @@
   --matr-navbar-bg-rgb: 0, 100, 0;
   --matr-navbar-text-color: #ffffff; /* White text for dark background */
   --matr-navbar-highlight-text: rgb(255, 255, 255); /* Black */
+
+  /*Calendar styles*/
+  --fc-button-bg-color: rgb(0, 100, 0);
+  --fc-button-border-color: rgb(0, 100, 0);
+  --fc-button-active-bg-color: rgb(0, 100, 0);
+  --fc-button-active-border-color: rgb(0, 100, 0);
+
+  --fc-event-bg-color: rgb(0, 100, 0);
+  --fc-event-border-color: rgb(0, 100, 0);
 }
 
 /* Change bootstrap variable values.
@@ -54,4 +63,9 @@ body {
 .page-title {
   color: white;
   text-shadow: 2px 1px 2px black;
+}
+
+/* Customizing Calendar */
+.fc-day-header {
+  color: white !important; /* Override the color of the month labels */
 }
