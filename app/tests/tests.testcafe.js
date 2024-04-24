@@ -29,6 +29,22 @@ test('Test that landing page shows up', async (testController) => {
   await landingPage.isDisplayed(testController);
 });
 
+test('Test that signup and signout work', async (testController) => {
+  await navBar.gotoSignUpPage(testController);
+  await signupPage.signupUser(testController, credentials2.username, credentials2.password);
+  await navBar.isLoggedIn(testController, credentials2.username);
+  await navBar.logout(testController);
+  await signoutPage.isDisplayed(testController);
+});
+
+test('Test that create profile works', async (testController) => {
+  await navBar.gotoSignUpPage(testController);
+  await signupPage.signupUser(testController, credentials4.username, credentials4.password);
+  await navBar.isLoggedIn(testController, credentials4.username);
+  // eslint-disable-next-line max-len
+  await createprofilePage.createprofile(testController, credentials3.firstName, credentials3.lastName, credentials3.address, credentials3.image, credentials3.description, credentials3.gradYear, credentials3.major, credentials3.position, credentials3.prefer);
+});
+
 test('Test that signin and signout work', async (testController) => {
   await navBar.gotoSignInPage(testController);
   await signinPage.signin(testController, credentials.username, credentials.password);
