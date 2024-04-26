@@ -3,26 +3,17 @@
 
 /* Set up some CSS variables to theme the application. */
 :root {
-  --matr-navbar-bg: rgb(0, 100, 0); /* Dark green */
+  --matr-navbar-bg: rgb(165, 168, 180); /* Dark green */
   --matr-navbar-bg-rgb: 0, 100, 0;
   --matr-navbar-text-color: #ffffff; /* White text for dark background */
   --matr-navbar-highlight-text: rgb(255, 255, 255); /* Black */
-
-  /*Calendar styles*/
-  --fc-button-bg-color: rgb(0, 100, 0);
-  --fc-button-border-color: rgb(0, 100, 0);
-  --fc-button-active-bg-color: rgb(0, 100, 0);
-  --fc-button-active-border-color: rgb(0, 100, 0);
-
-  --fc-event-bg-color: rgb(0, 100, 0);
-  --fc-event-border-color: rgb(0, 100, 0);
 }
 
 /* Change bootstrap variable values.
  See https://getbootstrap.com/docs/5.2/customize/css-variables/
  */
 body {
-  --bs-dark: var(--matr-navbar-bg);
+  --bs-light: var(--matr-navbar-bg);
   --bs-dark-rgb: var(--matr-navbar-bg-rgb);
   background-size: cover;
 }
@@ -54,20 +45,15 @@ footer a {
   color: var(--matr-navbar-text-color);
 }
 
-/* Add background image */
+/* Add gradient background */
 body {
   --bg-light-rgb: var(--matr-navbar-bg-rgb);
-  background: fixed center url("images/bg2.jpg");
+  background: linear-gradient(to right, rgba(169, 169, 169, 0.6), rgba(169, 169, 169, 0.6)), fixed center right 12% / cover url("images/bg2.jpg");
 }
+
+
 
 .page-title {
   color: white;
   text-shadow: 2px 1px 2px black;
 }
-
-.button-height {
-  height: 40px;
-  margin-top: 23px;
-  vertical-align: middle;
-}
-

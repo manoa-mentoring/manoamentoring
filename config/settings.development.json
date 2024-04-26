@@ -25,19 +25,19 @@
   ],
   "defaultContacts": [
     {
-      "firstName": "Philip",
-      "lastName": "Johnson",
-      "address": "POST 307, University of Hawaii",
-      "gradYear": "2024", "major": "Computer Science",
-      "image": "https://github.com/philipmjohnson.png",
-      "description": "I am a Professor of Information and Computer Sciences at the University of Hawaii, Director of the Collaborative Software Development Laboratory, and the CEO of OpenPowerQuality.com.",
+      "firstName": "Hauoli",
+      "lastName": "OBrien",
+      "address": "University of Hawaii",
+      "gradYear": "2025", "major": "Computer Science",
+      "image": "https://github.com/hauolinalani.png",
+      "description": "I'm a 3rd year Computer Science student at the University of Hawaii at Manoa. I'm interested in software engineering and web development. I've taken all of the lower division CS courses, and I'm currently taking ICS 314. I love to learn new things and I'm always looking for ways to improve my skills, and help others as well. I'm a very friendly and outgoing person, and I'm always willing to help others. I'm also a very hard worker and I'm always willing to put in the time and effort to get things done. I'm very passionate about what I do, and I'm always looking for ways to improve and grow as a person and as a developer.",
       "owner": "john@foo.com"
     },
     {
-      "firstName": "Henri",
-      "lastName": "Casanova",
-      "address": "POST 307, University of Hawaii",
-      "gradYear": "2024", "major": "Computer Science",
+      "firstName": "Hazelle",
+      "lastName": "Limos",
+      "address": "University of Hawaii",
+      "gradYear": "2025", "major": "Computer Science",
       "image": "https://avatars0.githubusercontent.com/u/7494478?s=460&v=4",
       "description": "I am originally from France. I maintain a list of reports from my surf sessions. I have proof that I ran the Hana relay with an actual Team.",
       "owner": "john2@foo.com"
@@ -59,19 +59,6 @@
       "gradYear": "2024", "major": "Computer Science",
       "description": "Carleton Moore is a Researcher in the Department of Information and Computer Sciences at the University of Hawaii at Manoa. He is a member of the Collaborative Software Development Laboratory.",
       "owner": "john3@foo.com"
-    }
-  ],
-
-  "defaultStudySessions": [
-    {
-      "name": "ICS 314 Bootstrap Study",
-      "subject": "ICS 314",
-      "location": "POST 200",
-      "hostName": "Philip Johnson",
-      "dateStart": "2024-05-10T14:00", "dateEnd": "2024-05-10T14:00",
-      "image": "https://logovectorseek.com/wp-content/uploads/2019/10/bootstrap-logo-vector.png",
-      "description": "Are you stuck in a bootstrap rut? Stop by and we can help tackle any problems or questions you have.",
-      "owner": "john@foo.com"
     }
   ]
 }
