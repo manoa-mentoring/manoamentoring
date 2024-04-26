@@ -6,15 +6,17 @@ import { useTracker } from 'meteor/react-meteor-data';
 import LoadingSpinner from '../components/LoadingSpinner';
 import Contact from '../components/Contact'; // Assuming Contact component is defined
 import { Contacts } from '../../api/contact/Contacts';
+import { Profiles} from '../../api/profile/Profiles';
+import Profile from '../components/CurrentProfile';
 
 const ListProfiles = () => {
-  const { ready, contacts } = useTracker(() => {
+  const { ready, profiles } = useTracker(() => {
     // eslint-disable-next-line no-undef
-    const subscription = Meteor.subscribe(Contacts.userPublicationName);
+    const subscription = Meteor.subscribe(Profiles.userPublicationName);
     const rdy = subscription.ready();
-    const contactItems = Contacts.collection.find({}).fetch();
+    const profileItems = Profiles.collection.find({}).fetch();
     return {
-      contacts: contactItems,
+      profiles: profileItems,
       ready: rdy,
     };
   }, []);
@@ -27,10 +29,10 @@ const ListProfiles = () => {
             <h2 className="page-title">Profiles</h2>
           </Col>
           <Row xs={1} md={2} lg={3} className="g-4">
-            {contacts.map((contact) => (
-              <Col key={contact._id}>
-                <Contact
-                  contact={contact}
+            {profiles.map((profile) => (
+              <Col key={profile._id}>
+                <Profile
+                  profile={profile}
                 />
               </Col>
             ))}
