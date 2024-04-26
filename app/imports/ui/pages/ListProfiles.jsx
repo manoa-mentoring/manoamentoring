@@ -4,7 +4,8 @@ import { Col, Container, Row } from 'react-bootstrap';
 // eslint-disable-next-line import/named
 import { useTracker } from 'meteor/react-meteor-data';
 import LoadingSpinner from '../components/LoadingSpinner';
-import { Profiles } from '../../api/profile/Profiles';
+import { Profiles } from '../../api/profile/Profiles'; // Assuming this is the MongoDB collection
+import Profile from '../components/Profile';
 
 const ListProfiles = () => {
   const { ready, profiles } = useTracker(() => {
@@ -28,7 +29,7 @@ const ListProfiles = () => {
           <Row xs={1} md={2} lg={3} className="g-4">
             {profiles.map((profile) => (
               <Col key={profile._id}>
-                <Profiles
+                <Profile
                   profile={profile}
                 />
               </Col>
