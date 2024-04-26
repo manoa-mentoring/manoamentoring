@@ -16,17 +16,21 @@ const NavBar = () => {
     <Navbar bg="dark" expand="lg">
       <Container>
         <Navbar.Brand as={NavLink} to="/">
-          <h2>Manoa Mentoring</h2>
+          <img
+            src="https://manoa.hawaii.edu/speakers/wp-content/uploads/logo-1-1030x1030.png"
+            alt="Manoa Mentoring Logo"
+            height="40"
+            className="d-inline-block align-top"
+          />
+          <h2 style={{ display: 'inline-block', marginLeft: '10px', color: 'white' }}>Manoa Mentoring</h2>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto justify-content-start">
             {currentUser ? ([
-              // <Nav.Link id="add-stuff-nav" as={NavLink} to="/add" key="add">Add Contact</Nav.Link>,
-              // <Nav.Link id="list-contacts-nav" as={NavLink} to="/list" key="list">List Contacts</Nav.Link>,
               <Nav.Link id="list-contacts-nav" as={NavLink} to="/view-profiles" key="list">View Profiles</Nav.Link>,
               <Nav.Link id="create-session-nav" as={NavLink} to="/create-study-session" key="add">Create Study Session</Nav.Link>,
-              <Nav.Link id="view-session-nav" as={NavLink} to="/view-study-session" key="add">Register for a Study Session</Nav.Link>,
+              <Nav.Link id="view-session-nav" as={NavLink} to="/view-study-session" key="register">Register for a Study Session</Nav.Link>,
               <Nav.Link id="edit-session-nav" as={NavLink} to="/edit-study-session/:_id" key="edit-session">Edit Study Session</Nav.Link>,
               <Nav.Link id="calendar" as={NavLink} to="/calendar" key="cal">Calendar</Nav.Link>,
             ]) : ''}
@@ -39,13 +43,11 @@ const NavBar = () => {
               <NavDropdown id="login-dropdown" title="Login">
                 <NavDropdown.Item id="login-dropdown-sign-in" as={NavLink} to="/signin">
                   <PersonFill />
-                  Sign
-                  in
+                  Sign in
                 </NavDropdown.Item>
                 <NavDropdown.Item id="login-dropdown-sign-up" as={NavLink} to="/signup">
                   <PersonPlusFill />
-                  Sign
-                  up
+                  Sign up
                 </NavDropdown.Item>
               </NavDropdown>
             ) : (
@@ -54,8 +56,7 @@ const NavBar = () => {
                 <NavDropdown.Item id="navbar-sign-out" as={NavLink} to="/signout">
                   <BoxArrowRight />
                   {' '}
-                  Sign
-                  out
+                  Sign out
                 </NavDropdown.Item>
               </NavDropdown>
             )}

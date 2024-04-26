@@ -4,9 +4,7 @@ import { Col, Container, Row } from 'react-bootstrap';
 // eslint-disable-next-line import/named
 import { useTracker } from 'meteor/react-meteor-data';
 import LoadingSpinner from '../components/LoadingSpinner';
-import Contact from '../components/Contact'; // Assuming Contact component is defined
-import { Contacts } from '../../api/contact/Contacts';
-import { Profiles} from '../../api/profile/Profiles';
+import { Profiles } from '../../api/profile/Profiles';
 import Profile from '../components/CurrentProfile';
 
 const ListProfiles = () => {
