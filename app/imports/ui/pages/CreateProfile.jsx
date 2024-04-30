@@ -40,8 +40,9 @@ const CreateProfile = ({ location }) => {
 
   // On submit, insert the data.
   const submit = (data, formRef) => {
-    const { firstName, lastName, address, image, gradYear, major, position, description, prefer, level } = data;
+    const { firstName, lastName, address, image, gradYear, major, position, description, prefer } = data;
     const owner = Meteor.user().username;
+    const level = 0;
     Profiles.collection.insert(
       { firstName, lastName, address, image, gradYear, major, position, description, owner, prefer, level },
       (error) => {
