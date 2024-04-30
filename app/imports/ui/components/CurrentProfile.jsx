@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Card, Image, Row, Col, ListGroup, Badge, Button } from 'react-bootstrap';
+import { Card, Image, Row, Col, ListGroup, Badge, Button, ProgressBar, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import { Envelope } from 'react-bootstrap-icons';
 import { Link } from 'react-router-dom';
 
@@ -22,6 +22,19 @@ const Profile = ({ profile }) => (
             <p className="mt-1">{profile.gradYear}</p>
           </Card.Subtitle>
         </Col>
+        <Row>
+          <Col>
+            <h className="text-muted">Lvl: {profile.level}</h>
+            <br />
+            <OverlayTrigger
+              placement="top"
+              delay={{ show: 25, hide: 300 }}
+              overlay={<Tooltip id="button-tooltip-2"><strong>55</strong> more exp to level up!</Tooltip>}
+            >
+              <ProgressBar animated variant="success" now={45} />
+            </OverlayTrigger>
+          </Col>
+        </Row>
       </Row>
     </Card.Header>
     <Card.Body>
@@ -63,6 +76,7 @@ Profile.propTypes = {
     position: PropTypes.string,
     prefer: PropTypes.string,
     description: PropTypes.string,
+    level: PropTypes.number,
     owner: PropTypes.string,
     _id: PropTypes.string,
   }).isRequired,

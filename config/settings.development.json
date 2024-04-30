@@ -18,6 +18,7 @@
       "description": "Hi! I'm a Computer Science major with a minor in Psychology. I'm taking ICS 314 this semester and am passionate about UI/UX design and Full-stack projects. I'd love to help!",
       "position": "Mentor",
       "prefer": "In-Person",
+      "level": 5,
       "owner": "admin@foo.com"
     },
     {
@@ -30,6 +31,7 @@
       "description": "I'm a computer science student this semester in ICS 314. I've taken ICS 311, Algorithms, which I can help with. I'm great at problem solving and am great at teamwork.",
       "position": "Mentor",
       "prefer": "Online",
+      "level": 5,
       "owner": "admin@foo.com"
     },
     {
@@ -42,6 +44,7 @@
       "description": "Hello! I'm Grace. I'm an Electrical Engineering Major with the University of Minnesota in combination with the University of Hawai'i. I'm in ICS 314 this semester to further my understanding of programming and software development and love to help others, and am great at collaborating in team settings. I look forward to meeting with you!",
       "position": "Mentor",
       "prefer": "In-Person",
+      "level": 5,
       "owner": "admin@foo.com"
     },
     {
@@ -54,6 +57,7 @@
       "description": "I'm a computer science major and am well-versed with JavaScript and can easily problem solve or debug quickly. I'm a student in ICS 314 this semester and can be of help for many of the problems that pop up in the class assignments.",
       "position": "Mentor",
       "prefer": "Online",
+      "level": 5,
       "owner": "admin@foo.com"
     }
   ],
