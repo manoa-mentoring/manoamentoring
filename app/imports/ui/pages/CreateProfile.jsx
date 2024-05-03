@@ -28,6 +28,10 @@ const formSchema = new SimpleSchema({
   description: String,
   level: {
     type: Number,
+    defaultValue: 1,
+  },
+  exp: {
+    type: Number,
     defaultValue: 0,
   },
 });
@@ -42,9 +46,10 @@ const CreateProfile = ({ location }) => {
   const submit = (data, formRef) => {
     const { firstName, lastName, address, image, gradYear, major, position, description, prefer } = data;
     const owner = Meteor.user().username;
-    const level = 0;
+    const level = 1;
+    const exp = 0;
     Profiles.collection.insert(
-      { firstName, lastName, address, image, gradYear, major, position, description, owner, prefer, level },
+      { firstName, lastName, address, image, gradYear, major, position, description, owner, prefer, level, exp },
       (error) => {
         if (error) {
           swal('Error', error.message, 'error');
