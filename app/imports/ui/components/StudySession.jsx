@@ -1,12 +1,39 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Card, Image, Row, Col, ListGroup, Badge, Button } from 'react-bootstrap';
-import { Envelope, Trash } from 'react-bootstrap-icons'; // Importing the Trash icon
+import { Envelope, PeopleFill, Trash } from 'react-bootstrap-icons'; // Importing the Trash icon
 import { Link } from 'react-router-dom';
+import { Meteor } from 'meteor/meteor';
+import swal from 'sweetalert';
 
 const StudySession = ({ studySession, onDelete }) => {
+  const [joined, setJoined] = useState(false);
+  const joinedUsersCount = studySession.joinedUsers ? studySession.joinedUsers.length : 0;
+
+  // Maintains state of "join/leave" button
+  useEffect(() => {
+    // Check if the state is already persisted in localStorage
+    const persistedState = localStorage.getItem(`studySession_${studySession._id}`);
+    if (persistedState !== null) {
+      setJoined(persistedState === 'true');
+    }
+  }, [studySession._id]);
+
   const handleDelete = () => {
     onDelete(studySession._id); // Call onDelete with the session ID
+  };
+
+  const handleJoinSession = () => {
+    if (!joined) {
+      Meteor.call('studysessions.join', studySession._id);
+      swal('', 'You have joined this study session.', 'success');
+    } else {
+      Meteor.call('studysessions.unjoin', studySession._id);
+      swal('', 'You have left this study session.', 'info');
+    }
+    setJoined(!joined);
+    // Persist the state in localStorage
+    localStorage.setItem(`studySession_${studySession._id}`, !joined);
   };
 
   return (
@@ -23,6 +50,8 @@ const StudySession = ({ studySession, onDelete }) => {
               <Badge bg="success"> {studySession.subject} </Badge>
               <br />
               <p className="mt-1"> Time: {studySession.dateStart.toLocaleString()} - {studySession.dateEnd.toLocaleString()}</p>
+              {/* Displays number of users who joined the study session */}
+              <PeopleFill /> {joinedUsersCount}
             </Card.Subtitle>
           </Col>
         </Row>
@@ -34,15 +63,21 @@ const StudySession = ({ studySession, onDelete }) => {
             <Envelope /> {studySession.owner}
           </ListGroup.Item>
         </ListGroup>
-        <Link to={`/edit-study-session/${studySession._id}`}>
-          <Button variant="success" className="me-2">
-            Edit Session
+        <div className="d-flex justify-content-between mt-3">
+          {/* Call handleJoinSession when the Join/Leave button is clicked */}
+          <Button onClick={handleJoinSession}>
+            {joined ? 'Leave' : 'Join'}
           </Button>
-        </Link>
-        {/* Call handleDelete when the delete button is clicked */}
-        <Button variant="danger" onClick={handleDelete}>
-          <Trash className="mb-1" /> Delete Session
-        </Button>
+          <Link to={`/edit-study-session/${studySession._id}`}>
+            <Button variant="success" className="me-2">
+              Edit Session
+            </Button>
+          </Link>
+          {/* Call handleDelete when the delete button is clicked */}
+          <Button variant="danger" onClick={handleDelete}>
+            <Trash className="mb-1" /> Delete Session
+          </Button>
+        </div>
       </Card.Body>
     </Card>
   );
@@ -59,6 +94,7 @@ StudySession.propTypes = {
     image: PropTypes.string,
     description: PropTypes.string,
     owner: PropTypes.string,
+    joinedUsers: PropTypes.arrayOf(PropTypes.string).isRequired,
     _id: PropTypes.string,
   }).isRequired,
   onDelete: PropTypes.func.isRequired, // Function to handle deletion
