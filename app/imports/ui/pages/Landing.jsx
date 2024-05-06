@@ -1,26 +1,43 @@
 import React from 'react';
-import { Container, Col, Row } from 'react-bootstrap';
+import { Container, Col, Row, Button } from 'react-bootstrap';
+import { Meteor } from 'meteor/meteor';
+import { LevelSystem } from '../../api/LevelSystem/LevelSystem';
 
-const Landing = () => (
-  <Container id="landing-page" className="py-3">
-    <Row className="justify-content-center align-items-center py-5 mb-4 extra-space">
-      <Col xs={9} md={4} className="mb-4 text-center" style={{ marginRight: '50px' }}>
-        <p style={{
-          color: 'var(--matr-navbar-text-color)',
-          textShadow: '0 0 10px black', /* Add black outline */
-        }}
-        >
-          Our application, Manoa Mentoring, aims to bring together students
-          and mentors. Students can match themselves with other students
-          who are facing similar issues, or they can choose a mentor
-          who specializes in a subject or course they are taking.
-          Through Manoa Mentoring, our goal is to create a space
-          where students can not only receive the support they need,
-          but also foster connections through mentorship and potential
-          friendships.
-        </p>
-      </Col>
-    </Row>
-  </Container>
-);
+const Landing = () => {
+  const handleRewardExp = () => {
+    const user = Meteor.user();
+    if (user) {
+      console.log(user);
+      LevelSystem(user.username, 10);
+    } else {
+      console.log('User not logged');
+    }
+  };
+  return (
+    <Container id="landing-page" className="py-3">
+      <Row className="justify-content-center align-items-center py-5 mb-4 extra-space">
+        <Col xs={9} md={4} className="mb-4 text-center" style={{ marginRight: '50px' }}>
+          <p style={{
+            color: 'var(--matr-navbar-text-color)',
+            textShadow: '0 0 10px black', /* Add black outline */
+          }}
+          >
+            Our application, Manoa Mentoring, aims to bring together students
+            and mentors. Students can match themselves with other students
+            who are facing similar issues, or they can choose a mentor
+            who specializes in a subject or course they are taking.
+            Through Manoa Mentoring, our goal is to create a space
+            where students can not only receive the support they need,
+            but also foster connections through mentorship and potential
+            friendships.
+          </p>
+        </Col>
+        <Button variant="primary" onClick={handleRewardExp}> {/* TEST, delete later */}
+          Reward with 10 Exp
+        </Button>
+      </Row>
+    </Container>
+  );
+};
+
 export default Landing;

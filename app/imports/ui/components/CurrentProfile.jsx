@@ -3,14 +3,19 @@ import PropTypes from 'prop-types';
 import { Card, Image, Row, Col, ListGroup, Badge, Button, ProgressBar, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import { Envelope } from 'react-bootstrap-icons';
 import { Link } from 'react-router-dom';
+import { Meteor } from 'meteor/meteor';
 import { LevelSystem, threshold } from '../../api/LevelSystem/LevelSystem';
 
 const Profile = ({ profile }) => {
   const handleRewardExp = () => {
-    // FREE 10 exp points (this is a test)
-    LevelSystem(profile.owner, 10);
+    const user = Meteor.user();
+    if (user) {
+      console.log(user);
+      LevelSystem(user.username, 10);
+    } else {
+      console.log('User not logged');
+    }
   };
-
   return (
     <Card className="h-100" border="success">
       <Card.Header>

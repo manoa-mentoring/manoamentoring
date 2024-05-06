@@ -23,6 +23,7 @@ function threshold(userId) {
 function LevelSystem(userId, exp) {
   // Get user info
   const profile = Profiles.collection.findOne({ owner: userId });
+  console.log(profile);
 
   if (profile) {
     const currentLevel = profile.level;
