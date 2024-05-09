@@ -29,9 +29,9 @@ const NavBar = () => {
           <Nav className="me-auto justify-content-start">
             {currentUser ? ([
               <Nav.Link id="user-homepage-nav" as={NavLink} to="/user-home" key="user-home">Home</Nav.Link>,
-              <Nav.Link id="list-profiles-nav" as={NavLink} to="/view-profiles" key="list">View Profiles</Nav.Link>,
+              <Nav.Link id="list-profiles-nav" as={NavLink} to="/view-profiles" key="list-profiles">View Profiles</Nav.Link>,
               <NavDropdown id="sessions-dropdown" title="Study Sessions">
-                <NavDropdown.Item id="create-session-nav" as={NavLink} to="/create-study-session" key="add">
+                <NavDropdown.Item id="create-session-nav" as={NavLink} to="/create-study-session" key="create-session">
                   Create a Study Session
                 </NavDropdown.Item>
                 <NavDropdown.Item id="view-session-nav" as={NavLink} to="/view-study-session" key="register">
