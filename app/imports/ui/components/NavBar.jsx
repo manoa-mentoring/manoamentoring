@@ -32,11 +32,9 @@ const NavBar = () => {
               <Nav.Link id="create-session-nav" as={NavLink} to="/create-study-session" key="add">Create Study Session</Nav.Link>,
               <Nav.Link id="view-session-nav" as={NavLink} to="/view-study-session" key="register">Register for a Study Session</Nav.Link>,
               <Nav.Link id="edit-session-nav" as={NavLink} to="/edit-study-session/:_id" key="edit-session">Edit Study Session</Nav.Link>,
+              <Nav.Link id="my-session-nav" as={NavLink} to="/my-sessions" key="my-sessions">My Sessions</Nav.Link>,
               <Nav.Link id="calendar" as={NavLink} to="/calendar" key="cal">Calendar</Nav.Link>,
             ]) : ''}
-            {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
-              <Nav.Link id="list-stuff-admin-nav" as={NavLink} to="/admin" key="admin">Admin</Nav.Link>
-            ) : ''}
           </Nav>
           <Nav className="justify-content-end">
             {currentUser === '' ? (
@@ -53,6 +51,9 @@ const NavBar = () => {
             ) : (
               <NavDropdown id="navbar-current-user" title={currentUser}>
                 <NavDropdown.Item as={NavLink} to="/my-profile"> My Profile </NavDropdown.Item>
+                {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
+                  <NavDropdown.Item as={NavLink} to="/admin"> Admin </NavDropdown.Item>
+                ) : ''}
                 <NavDropdown.Item id="navbar-sign-out" as={NavLink} to="/signout">
                   <BoxArrowRight />
                   {' '}

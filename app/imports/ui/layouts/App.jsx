@@ -53,7 +53,7 @@ const App = () => {
           <Route path="/create-study-session" element={<ProtectedRoute><AddStudySession /></ProtectedRoute>} />
           <Route path="/view-study-session" element={<ProtectedRoute><ListStudySessions /></ProtectedRoute>} />
           <Route path="/create" element={<ProtectedRoute><CreateProfile /></ProtectedRoute>} />
-          <Route path="/my-study-sessions" element={<ProtectedRoute><MySessions /></ProtectedRoute>} />
+          <Route path="/my-sessions" element={<ProtectedRoute><MySessions /></ProtectedRoute>} />
           <Route path="/edit/:_id" element={<ProtectedRoute><EditProfile /></ProtectedRoute>} />
           <Route path="/edit-study-session/:_id" element={<ProtectedRoute><EditStudySession /></ProtectedRoute>} />
           <Route path="/admin" element={<AdminProtectedRoute ready={ready}><ListContactsAdmin /></AdminProtectedRoute>} />
