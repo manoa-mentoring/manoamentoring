@@ -37,9 +37,10 @@ const NavBar = () => {
                 <NavDropdown.Item id="view-session-nav" as={NavLink} to="/view-study-session" key="register">
                   Register for a Study Session
                 </NavDropdown.Item>
-                <NavDropdown.Item id="my-session-nav" as as={NavLink} to="/my-sessions" key="my-sessions">
+                <NavDropdown.Item id="my-session-nav" as={NavLink} to="/my-sessions" key="my-sessions">
                   My Sessions
-                </NavDropdown>,
+                </NavDropdown.Item>
+              </NavDropdown>,
               <Nav.Link id="calendar" as={NavLink} to="/calendar" key="cal">Calendar</Nav.Link>,
             ]) : ''}
           </Nav>
