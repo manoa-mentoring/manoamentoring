@@ -26,6 +26,10 @@ const formSchema = new SimpleSchema({
     allowedValues: ['Online', 'In-Person', 'Online/In-Person'],
   },
   description: String,
+  level: {
+    type: Number,
+    defaultValue: 0,
+  },
 });
 
 const bridge = new SimpleSchema2Bridge(formSchema);
@@ -38,8 +42,9 @@ const CreateProfile = ({ location }) => {
   const submit = (data, formRef) => {
     const { firstName, lastName, address, image, gradYear, major, position, description, prefer } = data;
     const owner = Meteor.user().username;
+    const level = 0;
     Profiles.collection.insert(
-      { firstName, lastName, address, image, gradYear, major, position, description, owner, prefer },
+      { firstName, lastName, address, image, gradYear, major, position, description, owner, prefer, level },
       (error) => {
         if (error) {
           swal('Error', error.message, 'error');

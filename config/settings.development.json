@@ -8,14 +8,58 @@
     { "email": "john@foo.com", "password": "changeme" }
   ],
   "defaultProfiles": [
-    { "firstName": "John", "lastName": "Doe", "address": "POST 307, University of Hawaii",
-      "gradYear": "2026", "major": "Computer Science",
+    {
+      "firstName": "Hazelle",
+      "lastName": "Limos",
+      "address": "University of Hawaii",
+      "gradYear": "2026",
+      "major": "Computer Science, Psychology",
+      "image": "https://media.licdn.com/dms/image/D5603AQEwW9wtYrQOFQ/profile-displayphoto-shrink_400_400/0/1705643918808?e=1719446400&v=beta&t=LOQcCGOrFvhcE-WDhNJvZKEoob9ug9tumoIGT6yH_Xg",
+      "description": "Hi! I'm a Computer Science major with a minor in Psychology. I'm taking ICS 314 this semester and am passionate about UI/UX design and Full-stack projects. I'd love to help!",
+      "position": "Mentor",
+      "prefer": "In-Person",
+      "level": 5,
+      "owner": "admin@foo.com"
+    },
+    {
+      "firstName": "Roger",
+      "lastName": "Tulonghari",
+      "address": "University of Hawaii",
+      "gradYear": "2026",
+      "major": "Computer Science",
       "image": "https://cdn-icons-png.flaticon.com/512/149/149071.png",
-      "description": "I am a Professor of Information and Computer Sciences at the University of Hawaii, Director of the Collaborative Software Development Laboratory, and the CEO of OpenPowerQuality.com.", "position": "Student", "prefer": "In-Person", "owner": "john@foo.com" },
-    { "firstName": "Jane", "lastName": "Doe", "address": "POST 307, University of Hawaii",
-      "gradYear": "2026", "major": "Computer Science",
-      "image": "https://cdn-icons-png.flaticon.com/512/149/149071.png",
-      "description": "I am a Professor of Information and Computer Sciences at the University of Hawaii, Director of the Collaborative Software Development Laboratory, and the CEO of OpenPowerQuality.com.", "position": "Mentor", "prefer": "In-Person", "owner": "admin@foo.com" }
+      "description": "I'm a computer science student this semester in ICS 314. I've taken ICS 311, Algorithms, which I can help with. I'm great at problem solving and am great at teamwork.",
+      "position": "Mentor",
+      "prefer": "Online",
+      "level": 5,
+      "owner": "admin@foo.com"
+    },
+    {
+      "firstName": "Grace",
+      "lastName": "Madson",
+      "address": "University of Hawaii",
+      "gradYear": "2026",
+      "major": "Electrical Engineering",
+      "image": "https://media.licdn.com/dms/image/D5603AQEMkbVekTcUSA/profile-displayphoto-shrink_400_400/0/1672954381801?e=1719446400&v=beta&t=VyVIDq9oOLQqR_hobZoP0Zm-iZnx-BkX97_EU_cT5H4",
+      "description": "Hello! I'm Grace. I'm an Electrical Engineering Major with the University of Minnesota in combination with the University of Hawai'i. I'm in ICS 314 this semester to further my understanding of programming and software development and love to help others, and am great at collaborating in team settings. I look forward to meeting with you!",
+      "position": "Mentor",
+      "prefer": "In-Person",
+      "level": 5,
+      "owner": "admin@foo.com"
+    },
+    {
+      "firstName": "Robert",
+      "lastName": "Maddox",
+      "address": "University of Hawaii",
+      "gradYear": "2026",
+      "major": "Computer Science",
+      "image": "https://media.licdn.com/dms/image/D5603AQEMkbVekTcUSA/profile-displayphoto-shrink_400_400/0/1672954381801?e=1719446400&v=beta&t=VyVIDq9oOLQqR_hobZoP0Zm-iZnx-BkX97_EU_cT5H4",
+      "description": "I'm a computer science major and am well-versed with JavaScript and can easily problem solve or debug quickly. I'm a student in ICS 314 this semester and can be of help for many of the problems that pop up in the class assignments.",
+      "position": "Mentor",
+      "prefer": "Online",
+      "level": 5,
+      "owner": "admin@foo.com"
+    }
   ],
   "defaultData": [
     { "name": "Basket", "quantity": 3, "owner": "john@foo.com", "condition": "excellent" },
@@ -23,57 +67,18 @@
     { "name": "Banana", "quantity": 2, "owner": "admin@foo.com", "condition": "good" },
     { "name": "Boogie Board", "quantity": 2, "owner": "admin@foo.com", "condition": "excellent" }
   ],
-  "defaultContacts": [
-    {
-      "firstName": "Philip",
-      "lastName": "Johnson",
-      "address": "POST 307, University of Hawaii",
-      "gradYear": "2024", "major": "Computer Science",
-      "image": "https://github.com/philipmjohnson.png",
-      "description": "I am a Professor of Information and Computer Sciences at the University of Hawaii, Director of the Collaborative Software Development Laboratory, and the CEO of OpenPowerQuality.com.",
-      "owner": "john@foo.com"
-    },
-    {
-      "firstName": "Henri",
-      "lastName": "Casanova",
-      "address": "POST 307, University of Hawaii",
-      "gradYear": "2024", "major": "Computer Science",
-      "image": "https://avatars0.githubusercontent.com/u/7494478?s=460&v=4",
-      "description": "I am originally from France. I maintain a list of reports from my surf sessions. I have proof that I ran the Hana relay with an actual Team.",
-      "owner": "john2@foo.com"
-    },
-    {
-      "firstName": "Kim",
-      "lastName": "Binsted",
-      "address": "POST 307, University of Hawaii",
-      "gradYear": "2024", "major": "Computer Science",
-      "image": "https://www.ics.hawaii.edu/wp-content/uploads/2013/08/kim_binsted-square-300x300.jpg",
-      "description": "Kim Binsted received her BSc in Physics at McGill (1991), and her PhD in Artificial Intelligence from the University of Edinburgh (1996). Her thesis topic was the computational modeling and generation of punning riddles, and her program, JAPE (Joke Analysis and Production Engine), generated puns such as 'What do you call a Martian who drinks beer? An ale-ien!'.",
-      "owner": "admin@foo.com"
-    },
-    {
-      "firstName": "Carleton",
-      "lastName": "Moore",
-      "address": "POST 307, University of Hawaii",
-      "image": "https://cammoore.github.io/img/cam-moore.jpg",
-      "gradYear": "2024", "major": "Computer Science",
-      "description": "Carleton Moore is a Researcher in the Department of Information and Computer Sciences at the University of Hawaii at Manoa. He is a member of the Collaborative Software Development Laboratory.",
-      "owner": "john3@foo.com"
-    }
-  ],
-
   "defaultStudySessions": [
     {
       "name": "ICS 314 Bootstrap Study",
       "subject": "ICS 314",
       "location": "POST 200",
       "hostName": "Philip Johnson",
-      "dateStart": "2024-05-10T14:00", "dateEnd": "2024-05-10T14:00",
+      "dateStart": "2024-05-10T14:00",
+      "dateEnd": "2024-05-10T14:00",
       "image": "https://logovectorseek.com/wp-content/uploads/2019/10/bootstrap-logo-vector.png",
       "description": "Are you stuck in a bootstrap rut? Stop by and we can help tackle any problems or questions you have.",
       "owner": "john@foo.com"
     }
   ]
 }
-
 
