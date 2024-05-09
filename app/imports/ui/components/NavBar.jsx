@@ -28,10 +28,15 @@ const NavBar = () => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto justify-content-start">
             {currentUser ? ([
-              <Nav.Link id="list-contacts-nav" as={NavLink} to="/view-profiles" key="list">View Profiles</Nav.Link>,
-              <Nav.Link id="create-session-nav" as={NavLink} to="/create-study-session" key="add">Create Study Session</Nav.Link>,
-              <Nav.Link id="view-session-nav" as={NavLink} to="/view-study-session" key="register">Register for a Study Session</Nav.Link>,
-              <Nav.Link id="edit-session-nav" as={NavLink} to="/edit-study-session/:_id" key="edit-session">Edit Study Session</Nav.Link>,
+              <Nav.Link id="list-profiles-nav" as={NavLink} to="/view-profiles" key="list">View Profiles</Nav.Link>,
+              <NavDropdown id="sessions-dropdown" title="Study Sessions">
+                <NavDropdown.Item id="create-session-nav" as={NavLink} to="/create-study-session" key="add">
+                  Create a Study Session
+                </NavDropdown.Item>
+                <NavDropdown.Item id="view-session-nav" as={NavLink} to="/view-study-session" key="register">
+                  Register for a Study Session
+                </NavDropdown.Item>
+              </NavDropdown>,
               <Nav.Link id="calendar" as={NavLink} to="/calendar" key="cal">Calendar</Nav.Link>,
             ]) : ''}
             {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
