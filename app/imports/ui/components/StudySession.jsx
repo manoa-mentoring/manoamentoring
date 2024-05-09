@@ -111,7 +111,7 @@ StudySession.propTypes = {
     image: PropTypes.string,
     description: PropTypes.string,
     owner: PropTypes.string,
-    joinedUsers: PropTypes.arrayOf(PropTypes.string).isRequired,
+    joinedUsers: PropTypes.arrayOf(PropTypes.string),
     _id: PropTypes.string,
   }).isRequired,
   onDelete: PropTypes.func.isRequired, // Function to handle deletion
