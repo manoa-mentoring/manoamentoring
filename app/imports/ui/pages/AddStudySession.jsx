@@ -27,7 +27,8 @@ const AddStudySession = () => {
   const handleRewardExp = () => {
     const user = Meteor.user();
     if (user) {
-      LevelSystem(user._id, 10);
+      console.log(user);
+      LevelSystem(user.username, 100);
     } else {
       console.log('User not logged');
     }
@@ -42,8 +43,8 @@ const AddStudySession = () => {
         if (error) {
           swal('Error', error.message, 'error');
         } else {
-          swal('Success', 'Item added successfully', 'success');
           handleRewardExp();
+          swal('Success', 'Item added successfully (+100 xp)', 'success');
           formRef.reset();
         }
       },

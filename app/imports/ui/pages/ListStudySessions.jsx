@@ -6,20 +6,26 @@ import { useTracker } from 'meteor/react-meteor-data';
 import LoadingSpinner from '../components/LoadingSpinner';
 import { StudySessions } from '../../api/studysession/StudySession';
 import StudySession from '../components/StudySession';
+import { Profiles } from '../../api/profile/Profiles';
 
 const ListStudySessions = () => {
-  const { ready, sessions } = useTracker(() => {
+  const { ready1, ready2, sessions, profiles } = useTracker(() => {
     // eslint-disable-next-line no-undef
-    const subscription = Meteor.subscribe(StudySessions.userPublicationName);
-    const rdy = subscription.ready();
+    const sessionSubscription = Meteor.subscribe(StudySessions.userPublicationName);
+    const profileSubscription = Meteor.subscribe('currentUserProfile');
+    const sessionRdy = sessionSubscription.ready();
+    const profileRdy = profileSubscription.ready();
     const sessionItems = StudySessions.collection.find({}).fetch();
+    const profileItems = Profiles.collection.find({}).fetch();
     return {
       sessions: sessionItems,
-      ready: rdy,
+      profiles: profileItems,
+      ready1: sessionRdy,
+      ready2: profileRdy,
     };
   }, []);
 
-  return (ready ? (
+  return (ready1 && ready2 ? (
     <Container className="py-3">
       <Row className="justify-content-center">
         <Col>
@@ -28,11 +34,14 @@ const ListStudySessions = () => {
           </Col>
           <Row xs={1} md={2} lg={3} className="g-4">
             {sessions.map((session) => (
-              <Col key={session._id}>
-                <StudySession
-                  studySession={session}
-                />
-              </Col>
+              profiles.map((profile) => (
+                <Col key={`${session._id}-${profile._id}`}>
+                  <StudySession
+                    studySession={session}
+                    profile={profile}
+                  />
+                </Col>
+              ))
             ))}
           </Row>
         </Col>

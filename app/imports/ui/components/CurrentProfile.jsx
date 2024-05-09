@@ -3,83 +3,68 @@ import PropTypes from 'prop-types';
 import { Card, Image, Row, Col, ListGroup, Badge, Button, ProgressBar, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import { Envelope } from 'react-bootstrap-icons';
 import { Link } from 'react-router-dom';
-import { Meteor } from 'meteor/meteor';
-import { LevelSystem, threshold } from '../../api/LevelSystem/LevelSystem';
+import { threshold } from '../../api/LevelSystem/LevelSystem';
 
-const Profile = ({ profile }) => {
-  const handleRewardExp = () => {
-    const user = Meteor.user();
-    if (user) {
-      console.log(user);
-      LevelSystem(user.username, 10);
-    } else {
-      console.log('User not logged');
-    }
-  };
-  return (
-    <Card className="h-100" border="success">
-      <Card.Header>
+const Profile = ({ profile }) => (
+  <Card className="h-100" border="success">
+    <Card.Header>
+      <Row>
+        <Col>
+          <Image src={profile.image} width={125} className="ms-3 rounded-3 shadow" />
+        </Col>
+        <Col>
+          <br />
+          <Card.Title> {profile.firstName} {profile.lastName} </Card.Title>
+          <Card.Subtitle className="text-muted">
+            <Badge bg="success"> {profile.major} </Badge>
+            <br />
+            <Badge bg="primary"> {profile.position}</Badge>
+            <br />
+            <p className="mt-1">{profile.gradYear}</p>
+          </Card.Subtitle>
+        </Col>
         <Row>
           <Col>
-            <Image src={profile.image} width={125} className="ms-3 rounded-3 shadow" />
-          </Col>
-          <Col>
+            <h className="text-muted">Lvl: {profile.level}</h>
             <br />
-            <Card.Title> {profile.firstName} {profile.lastName} </Card.Title>
-            <Card.Subtitle className="text-muted">
-              <Badge bg="success"> {profile.major} </Badge>
-              <br />
-              <Badge bg="primary"> {profile.position}</Badge>
-              <br />
-              <p className="mt-1">{profile.gradYear}</p>
-            </Card.Subtitle>
+            <OverlayTrigger
+              placement="top"
+              delay={{ show: 25, hide: 300 }}
+              overlay={<Tooltip id="button-tooltip-2"><strong>{threshold(profile.owner) - profile.exp}</strong> more exp to level up!</Tooltip>}
+            >
+              <ProgressBar animated variant="success" now={((profile.exp) / threshold(profile.owner)) * 100} />
+            </OverlayTrigger>
           </Col>
-          <Row>
-            <Col>
-              <h className="text-muted">Lvl: {profile.level}</h>
-              <br />
-              <OverlayTrigger
-                placement="top"
-                delay={{ show: 25, hide: 300 }}
-                overlay={<Tooltip id="button-tooltip-2"><strong>{threshold(profile.owner) - profile.exp}</strong> more exp to level up!</Tooltip>}
-              >
-                <ProgressBar animated variant="success" now={((profile.exp) / threshold(profile.owner)) * 100} />
-              </OverlayTrigger>
-            </Col>
-          </Row>
         </Row>
-      </Card.Header>
-      <Card.Body>
-        <ListGroup className="list-group-flush">
-          <ListGroup.Item> {profile.description} </ListGroup.Item>
-          <ListGroup.Item>
-            <strong>Prefers</strong>
-            <br />
-            {profile.prefer}
-          </ListGroup.Item>
-          <ListGroup.Item>
-            <strong>Courses I&apos;m Taking</strong>
-            <br />
-            <Badge bg="success">ICS 314</Badge>
-          </ListGroup.Item>
-          <ListGroup.Item>
-            <Envelope /> {profile.owner}
-          </ListGroup.Item>
-        </ListGroup>
-      </Card.Body>
-      <Card.Footer>
-        <Button variant="primary" onClick={handleRewardExp}> {/* TEST, delete later */}
-          Reward with 10 Exp
+      </Row>
+    </Card.Header>
+    <Card.Body>
+      <ListGroup className="list-group-flush">
+        <ListGroup.Item> {profile.description} </ListGroup.Item>
+        <ListGroup.Item>
+          <strong>Prefers</strong>
+          <br />
+          {profile.prefer}
+        </ListGroup.Item>
+        <ListGroup.Item>
+          <strong>Courses I&apos;m Taking</strong>
+          <br />
+          <Badge bg="success">ICS 314</Badge>
+        </ListGroup.Item>
+        <ListGroup.Item>
+          <Envelope /> {profile.owner}
+        </ListGroup.Item>
+      </ListGroup>
+    </Card.Body>
+    <Card.Footer>
+      <Link to={`/edit/${profile._id}`}>
+        <Button variant="success">
+          Edit Profile
         </Button>
-        <Link to={`/edit/${profile._id}`}>
-          <Button variant="success">
-            Edit Profile
-          </Button>
-        </Link>
-      </Card.Footer>
-    </Card>
-  );
-};
+      </Link>
+    </Card.Footer>
+  </Card>
+);
 
 // Require a document to be passed to this component.
 Profile.propTypes = {

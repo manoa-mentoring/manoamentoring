@@ -50,4 +50,39 @@ function LevelSystem(userId, exp) {
   }
 }
 
-export { LevelSystem, threshold }; // Export both functions
+// Function to subtract user's experience points and level down if exp goes below 0
+function subtractExp(userId, exp) {
+  // Get user info
+  const profile = Profiles.collection.findOne({ owner: userId });
+
+  if (profile) {
+    const currentExp = profile.exp;
+    const currentLevel = profile.level;
+
+    let newExp = currentExp - exp;
+    let newLevel = currentLevel;
+
+    // Check if new exp is below 0
+    if (newExp < 0) {
+      // Level down
+      newLevel--;
+
+      // Calculate the new level up threshold based on the new level
+      let levelUpThreshold = 100; // Base threshold for level 1
+      for (let i = 1; i < newLevel; i++) {
+        levelUpThreshold = Math.ceil(levelUpThreshold * 1.5); // Increase threshold by 1.5 times
+      }
+
+      // Set exp to the remaining amount needed for the current level
+      newExp = levelUpThreshold + newExp;
+    }
+
+    // Update the user's profile with new level and exp
+    Profiles.collection.update(profile._id, { $set: { level: newLevel, exp: newExp } });
+  } else {
+    // Handle case where user profile is not found (optional)
+    console.log('User profile not found for ID:', userId);
+  }
+}
+
+export { LevelSystem, threshold, subtractExp }; // Export both functions
