@@ -23,4 +23,5 @@ const Landing = () => (
     </Row>
   </Container>
 );
+
 export default Landing;

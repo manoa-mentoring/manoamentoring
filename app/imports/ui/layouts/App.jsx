@@ -20,12 +20,12 @@ import ListProfiles from '../pages/ListProfiles';
 import ListCurrentProfile from '../pages/ListCurrentProfile';
 import UserHomePage from '../pages/UserHomePage';
 import CalendarPage from '../pages/CalendarPage';
-import AddStudySession from '../pages/AddStudySession';
 import ListStudySessions from '../pages/ListStudySessions';
 import EditStudySession from '../pages/EditStudySession';
 import CreateProfile from '../pages/CreateProfile';
 import EditProfile from '../pages/EditProfile';
 import MySessions from '../pages/MySessions';
+import DisplayAddSession from '../pages/DisplayAddSession';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 const App = () => {
@@ -50,7 +50,7 @@ const App = () => {
           <Route path="/calendar" element={<CalendarPage />} /> {/* Added the Calendar Page */}
           <Route path="/my-profile" element={<ProtectedRoute><ListCurrentProfile /></ProtectedRoute>} /> {/* Added link to viewable profiles */}
           <Route path="/user-home" element={<ProtectedRoute><UserHomePage /></ProtectedRoute>} /> {/* Added link to viewable profiles */}
-          <Route path="/create-study-session" element={<ProtectedRoute><AddStudySession /></ProtectedRoute>} />
+          <Route path="/create-study-session" element={<ProtectedRoute><DisplayAddSession /></ProtectedRoute>} />
           <Route path="/view-study-session" element={<ProtectedRoute><ListStudySessions /></ProtectedRoute>} />
           <Route path="/create" element={<ProtectedRoute><CreateProfile /></ProtectedRoute>} />
           <Route path="/my-sessions" element={<ProtectedRoute><MySessions /></ProtectedRoute>} />

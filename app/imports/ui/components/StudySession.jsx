@@ -5,8 +5,28 @@ import { Envelope, PeopleFill, Trash } from 'react-bootstrap-icons'; // Importin
 import { Link } from 'react-router-dom';
 import { Meteor } from 'meteor/meteor';
 import swal from 'sweetalert';
+import { LevelSystem, subtractExp } from '../../api/LevelSystem/LevelSystem';
 
 const StudySession = ({ studySession, onDelete }) => {
+  const handleRewardExp = () => {
+    const user = Meteor.user();
+    if (user) {
+      console.log(user);
+      LevelSystem(user.username, 50);
+    } else {
+      console.log('User not logged');
+    }
+  };
+
+  const handleUserLeaveExp = () => {
+    const user = Meteor.user();
+    if (user) {
+      console.log(user);
+      subtractExp(user.username, 50);
+    } else {
+      console.log('User not logged');
+    }
+  };
   const [joined, setJoined] = useState(false);
   const [currentUser, setCurrentUser] = useState(null); // State to store the current user
 
@@ -33,10 +53,12 @@ const StudySession = ({ studySession, onDelete }) => {
   const handleJoinSession = () => {
     if (!joined) {
       Meteor.call('studysessions.join', studySession._id);
-      swal('', 'You have joined this study session.', 'success');
+      handleRewardExp();
+      swal('', 'You have joined this study session. (+50 xp)', 'success');
     } else {
       Meteor.call('studysessions.unjoin', studySession._id);
-      swal('', 'You have left this study session.', 'info');
+      handleUserLeaveExp();
+      swal('', 'You have left this study session. (-50 xp)', 'info');
     }
     setJoined(!joined);
     // Persist the state in localStorage

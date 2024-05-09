@@ -1,11 +1,12 @@
 import React from 'react';
+import { Meteor } from 'meteor/meteor';
 import { Card, Col, Container, Row } from 'react-bootstrap';
 import { AutoForm, ErrorsField, LongTextField, SubmitField, TextField, DateField } from 'uniforms-bootstrap5';
 import swal from 'sweetalert';
-import { Meteor } from 'meteor/meteor';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import SimpleSchema from 'simpl-schema';
 import { StudySessions } from '../../api/studysession/StudySession';
+import { LevelSystem } from '../../api/LevelSystem/LevelSystem';
 
 // Create a schema to specify the structure of the data to appear in the form.
 const formSchema = new SimpleSchema({
@@ -23,7 +24,15 @@ const bridge = new SimpleSchema2Bridge(formSchema);
 
 /* Renders the AddStudySession page for adding a document. */
 const AddStudySession = () => {
-
+  const handleRewardExp = () => {
+    const user = Meteor.user();
+    if (user) {
+      console.log(user);
+      LevelSystem(user.username, 100);
+    } else {
+      console.log('User not logged');
+    }
+  };
   // On submit, insert the data.
   const submit = (data, formRef) => {
     const { name, subject, location, hostName, dateStart, dateEnd, image, description } = data;
@@ -34,7 +43,8 @@ const AddStudySession = () => {
         if (error) {
           swal('Error', error.message, 'error');
         } else {
-          swal('Success', 'Item added successfully', 'success');
+          handleRewardExp();
+          swal('Success', 'Item added successfully (+100 xp)', 'success');
           formRef.reset();
         }
       },
@@ -68,7 +78,7 @@ const AddStudySession = () => {
                   <Col><LongTextField id="description" name="description" /></Col>
                 </Row>
                 <ErrorsField />
-                <SubmitField id="submit" />
+                <SubmitField value="Create Session" id="submit" />
               </AutoForm>
             </Card.Body>
           </Card>

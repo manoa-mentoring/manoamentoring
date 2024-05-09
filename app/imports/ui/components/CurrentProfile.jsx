@@ -4,6 +4,7 @@ import { Card, Image, Row, Col, ListGroup, Badge, Button, ProgressBar, OverlayTr
 import { Envelope } from 'react-bootstrap-icons';
 import { Link } from 'react-router-dom';
 import { Meteor } from 'meteor/meteor';
+import { threshold } from '../../api/LevelSystem/LevelSystem';
 
 const Profile = ({ profile }) => {
   const currentUser = Meteor.user();
@@ -14,6 +15,7 @@ const Profile = ({ profile }) => {
         <Row>
           <Col>
             <Image src={profile.image} width={125} className="ms-3 rounded-3 shadow" />
+            <br />
           </Col>
           <Col>
             <br />
@@ -33,9 +35,9 @@ const Profile = ({ profile }) => {
               <OverlayTrigger
                 placement="top"
                 delay={{ show: 25, hide: 300 }}
-                overlay={<Tooltip id="button-tooltip-2"><strong>55</strong> more exp to level up!</Tooltip>}
+                overlay={<Tooltip id="button-tooltip-2"><strong>{threshold(profile.owner) - profile.exp}</strong> more exp to level up!</Tooltip>}
               >
-                <ProgressBar animated variant="success" now={45} />
+                <ProgressBar animated variant="success" now={((profile.exp) / threshold(profile.owner)) * 100} />
               </OverlayTrigger>
             </Col>
           </Row>
@@ -84,6 +86,7 @@ Profile.propTypes = {
     prefer: PropTypes.string,
     description: PropTypes.string,
     level: PropTypes.number,
+    exp: PropTypes.number,
     owner: PropTypes.string,
     _id: PropTypes.string,
   }).isRequired,

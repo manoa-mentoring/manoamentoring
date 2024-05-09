@@ -19,6 +19,7 @@
       "position": "Mentor",
       "prefer": "In-Person",
       "level": 5,
+      "exp": 20,
       "owner": "admin@foo.com"
     },
     {
@@ -32,6 +33,7 @@
       "position": "Mentor",
       "prefer": "Online",
       "level": 5,
+      "exp": 15,
       "owner": "admin@foo.com"
     },
     {
@@ -45,6 +47,7 @@
       "position": "Mentor",
       "prefer": "In-Person",
       "level": 5,
+      "exp": 40,
       "owner": "admin@foo.com"
     },
     {
@@ -58,6 +61,7 @@
       "position": "Mentor",
       "prefer": "Online",
       "level": 5,
+      "exp": 35,
       "owner": "admin@foo.com"
     }
   ],
