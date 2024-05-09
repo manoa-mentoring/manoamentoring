@@ -63,6 +63,34 @@
       "level": 5,
       "exp": 35,
       "owner": "admin@foo.com"
+    },
+    {
+      "firstName": "John",
+      "lastName": "Doe",
+      "address": "University of Hawaii",
+      "gradYear": "2026",
+      "major": "Computer Science",
+      "image": "a",
+      "description": "I'm a computer science major and am well-versed with JavaScript and can easily problem solve or debug quickly. I'm a student in ICS 314 this semester and can be of help for many of the problems that pop up in the class assignments.",
+      "position": "Mentor",
+      "prefer": "Online",
+      "level": 5,
+      "exp": 35,
+      "owner": "john@foo.com"
+    },
+    {
+      "firstName": "Mr.",
+      "lastName": "Admin",
+      "address": "University of Hawaii",
+      "gradYear": "2026",
+      "major": "Computer Science",
+      "image": "a",
+      "description": "I'm a computer science major and am well-versed with JavaScript and can easily problem solve or debug quickly. I'm a student in ICS 314 this semester and can be of help for many of the problems that pop up in the class assignments.",
+      "position": "Mentor",
+      "prefer": "Online",
+      "level": 5,
+      "exp": 35,
+      "owner": "admin@foo.com"
     }
   ],
   "defaultData": [
