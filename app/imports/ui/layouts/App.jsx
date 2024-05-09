@@ -25,6 +25,7 @@ import ListStudySessions from '../pages/ListStudySessions';
 import EditStudySession from '../pages/EditStudySession';
 import CreateProfile from '../pages/CreateProfile';
 import EditProfile from '../pages/EditProfile';
+import MySessions from '../pages/MySessions';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 const App = () => {
@@ -52,6 +53,7 @@ const App = () => {
           <Route path="/create-study-session" element={<ProtectedRoute><AddStudySession /></ProtectedRoute>} />
           <Route path="/view-study-session" element={<ProtectedRoute><ListStudySessions /></ProtectedRoute>} />
           <Route path="/create" element={<ProtectedRoute><CreateProfile /></ProtectedRoute>} />
+          <Route path="/my-study-sessions" element={<ProtectedRoute><MySessions /></ProtectedRoute>} />
           <Route path="/edit/:_id" element={<ProtectedRoute><EditProfile /></ProtectedRoute>} />
           <Route path="/edit-study-session/:_id" element={<ProtectedRoute><EditStudySession /></ProtectedRoute>} />
           <Route path="/admin" element={<AdminProtectedRoute ready={ready}><ListContactsAdmin /></AdminProtectedRoute>} />
