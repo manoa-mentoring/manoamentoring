@@ -84,7 +84,7 @@ const CreateProfile = ({ location }) => {
                 </Row>
                 <Row className="mb-3">
                   <Col><TextField id="createprofile-form-address" name="address" /></Col>
-                  <Col><TextField id="createprofile-form-image" name="image" /></Col>
+                  <Col><TextField id="createprofile-form-image" name="image" placeholder="Put a link for you Profile Picture" /></Col>
                 </Row>
                 <Row>
                   <Col><LongTextField id="createprofile-form-description" name="description" /></Col>
