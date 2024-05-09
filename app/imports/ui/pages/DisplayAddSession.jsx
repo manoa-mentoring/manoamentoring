@@ -24,7 +24,7 @@ const DisplayAddSession = () => {
       <Row className="justify-content-center">
         <Col>
           <Col className="text-center">
-            <h2 className="page-title">My Profile</h2>
+            <h2 className="page-title">Add Study Session</h2>
           </Col>
           <Row className="g-4 justify-content-center">
             {profiles.map((profile) => (
