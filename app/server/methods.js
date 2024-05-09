@@ -13,7 +13,7 @@ Meteor.methods({
     }
 
     // Add the current user to the joinedUsers array of the session document
-    StudySessions.collection.update({ _id: sessionId }, { $addToSet: { joinedUsers: currentUser.username } });
+    StudySessions.collection.update({ _id: sessionId }, { $addToSet: { joinedUsers: currentUser._id } });
   },
   'studysessions.unjoin'(sessionId) {
     check(sessionId, String);
@@ -24,6 +24,6 @@ Meteor.methods({
     }
 
     // Removes the current user from the joinedUsers array of the session document
-    StudySessions.collection.update({ _id: sessionId }, { $pull: { joinedUsers: currentUser.username } });
+    StudySessions.collection.update({ _id: sessionId }, { $pull: { joinedUsers: currentUser._id } });
   },
 });

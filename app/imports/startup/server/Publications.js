@@ -49,6 +49,14 @@ Meteor.publish('currentUserProfile', function () {
   return this.ready();
 });
 
+Meteor.publish('mySessions', function () {
+  if (this.userId) {
+    const currentUser = Meteor.users.findOne(this.userId);
+    return StudySessions.collection.find({ joinedUsers: currentUser._id });
+  }
+  return this.ready();
+});
+
 // Admin-level publication.
 // If logged in and with admin role, then publish all documents from all users. Otherwise, publish nothing.
 Meteor.publish(Contacts.adminPublicationName, function () {
