@@ -8,7 +8,14 @@ import swal from 'sweetalert';
 
 const StudySession = ({ studySession, onDelete }) => {
   const [joined, setJoined] = useState(false);
+  const [currentUser, setCurrentUser] = useState(null); // State to store the current user
+
   const joinedUsersCount = studySession.joinedUsers ? studySession.joinedUsers.length : 0;
+
+  // Fetch the current user on component mount
+  useEffect(() => {
+    setCurrentUser(Meteor.user());
+  }, []);
 
   // Maintains state of "join/leave" button
   useEffect(() => {
@@ -68,15 +75,20 @@ const StudySession = ({ studySession, onDelete }) => {
           <Button onClick={handleJoinSession}>
             {joined ? 'Leave' : 'Join'}
           </Button>
-          <Link to={`/edit-study-session/${studySession._id}`}>
-            <Button variant="success" className="me-2">
-              Edit Session
+          {/* Render the Edit Session button only if the current user is the owner */}
+          {currentUser && currentUser.username === studySession.owner && (
+            <Link to={`/edit-study-session/${studySession._id}`}>
+              <Button variant="success" className="me-2">
+                Edit Session
+              </Button>
+            </Link>
+          )}
+          {/* Render the Delete Session button only if the current user is the owner */}
+          {currentUser && currentUser.username === studySession.owner && (
+            <Button variant="danger" onClick={handleDelete}>
+              <Trash className="mb-1" /> Delete Session
             </Button>
-          </Link>
-          {/* Call handleDelete when the delete button is clicked */}
-          <Button variant="danger" onClick={handleDelete}>
-            <Trash className="mb-1" /> Delete Session
-          </Button>
+          )}
         </div>
       </Card.Body>
     </Card>
