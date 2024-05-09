@@ -55,8 +55,11 @@ const StudySession = ({ studySession, onDelete }) => {
             <Card.Title> {studySession.name} </Card.Title>
             <Card.Subtitle className="text-muted">
               <Badge bg="success"> {studySession.subject} </Badge>
-              <br />
-              <p className="mt-1"> Time: {studySession.dateStart.toLocaleString()} - {studySession.dateEnd.toLocaleString()}</p>
+              <p className="pt-2">
+                {studySession.dateStart.toLocaleString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
+                <br />
+                {studySession.dateStart.toLocaleString('en-US', { hour: '2-digit', minute: '2-digit' })} - {studySession.dateEnd.toLocaleString('en-US', { hour: '2-digit', minute: '2-digit' })}
+              </p>
               {/* Displays number of users who joined the study session */}
               <PeopleFill /> {joinedUsersCount}
             </Card.Subtitle>
@@ -70,7 +73,9 @@ const StudySession = ({ studySession, onDelete }) => {
             <Envelope /> {studySession.owner}
           </ListGroup.Item>
         </ListGroup>
-        <div className="d-flex justify-content-between mt-3">
+      </Card.Body>
+      <Card.Footer>
+        <div className="d-flex justify-content-between">
           {/* Call handleJoinSession when the Join/Leave button is clicked */}
           <Button onClick={handleJoinSession}>
             {joined ? 'Leave' : 'Join'}
@@ -90,7 +95,7 @@ const StudySession = ({ studySession, onDelete }) => {
             </Button>
           )}
         </div>
-      </Card.Body>
+      </Card.Footer>
     </Card>
   );
 };
